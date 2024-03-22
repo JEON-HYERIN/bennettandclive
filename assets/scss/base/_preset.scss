@@ -1,0 +1,24 @@
+::selection {
+    background-color: #000;
+    color: #fff;
+    text-shadow: none
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%
+}
+
+body,html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: InterWeb,sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #000;
+    overflow-x: hidden;
+    background-color: #fff;
+}
