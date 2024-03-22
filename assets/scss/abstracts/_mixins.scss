@@ -1,0 +1,34 @@
+@mixin common-section-gap {
+  padding-top: $gap-desktop;
+  @include tablet {
+    padding-top: $gap-tablet;
+  }
+  @include mobile {
+    padding-top: $gap-mobile;
+  }
+}
+
+// media query
+@mixin tablet {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin mobile-small {
+  @media screen and (max-width: 479px) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
