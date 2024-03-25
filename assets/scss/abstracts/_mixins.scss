@@ -9,23 +9,18 @@
 }
 
 // media query
-@mixin tablet {
-  @media screen and (max-width: 991px) {
+@mixin desktop-large {
+  @media screen and (min-width: 1920px) {
     @content;
   }
 }
 
-@mixin mobile {
-  @media screen and (max-width: 767px) {
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
     @content;
   }
 }
 
-@mixin mobile-small {
-  @media screen and (max-width: 479px) {
-    @content;
-  }
-}
 
 @mixin hover {
   @media (hover: hover) {

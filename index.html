@@ -2,29 +2,109 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bennett &amp; Clive | Raising Your Idea</title>
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180" />
-  <link rel="shortcut icon" href="./favicon-16x16.png" sizes="16x16"  type="image/x-icon" />
-  <link rel="shortcut icon" href="./favicon-32x32.png" sizes="32x32"  type="image/x-icon" />
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <!-- JS -->
-  <script defer src="./assets/js/custom.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="./assets/js/split.min.js"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Bennett &amp; Clive | Raising Your Idea</title>
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180" />
+	<link rel="shortcut icon" href="./favicon-16x16.png" sizes="16x16" type="image/x-icon" />
+	<link rel="shortcut icon" href="./favicon-32x32.png" sizes="32x32" type="image/x-icon" />
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="./assets/css/style.css" />
+	<!-- JS -->
+	<script defer src="./assets/js/custom.js"></script>
+	<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+	<script src="./assets/js/split.min.js"></script>
 </head>
 
 <body>
-
+	<div id="wrap">
+		<header class="header">
+			<h1 class="blind">Bennett &amp; Clive</h1>
+			<nav class="nav">
+				<ul class="nav__list">
+					<li class="nav__item is-active">
+						<a href="#" class="nav__link">Home</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__link">Work</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__link">About</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__link">Contact</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="main">
+			<section class="section-home">
+				<h2 class="blind"></h2>
+				<div class="section-home__wrapper">
+					<div class="section-home__triggers">
+						<div class="section-home__trigger"></div>
+						<div class="section-home__trigger"></div>
+						<div class="section-home__trigger"></div>
+						<div class="section-home__trigger"></div>
+						<div class="section-home__trigger"></div>
+						<div class="section-home__trigger"></div>
+					</div>
+					<div class="section-home__inner">
+						<div class="section-home__sticky">
+							<div class="swiper">
+								<div class="section-home__slides swiper-wrapper">
+									<div class="section-home__slide swiper-slide first">
+										<div class="section-home__titles">
+											<span class="section-home__title">
+												<a href="#">Adidas</a>
+											</span>
+											<span class="section-home__title">
+												<a href="#">Adidas</a>
+											</span>
+											<span class="section-home__title">
+												<a href="#">Adidas</a>
+											</span>
+											<span class="section-home__title">
+												<a href="#">Adidas</a>
+											</span>
+											<span class="section-home__title">
+												<a href="#">Adidas</a>
+											</span>
+										</div>
+										<div class="section-home__embedded">
+											<video playsinline autoplay muted loop src="./assets/videos/home-1.mp4"></video>
+										</div>
+									</div>
+									<div class="section-home__slide swiper-slide">
+										<div class="section-home__embedded">
+											<video playsinline autoplay muted loop src="./assets/videos/home-2.mp4"></video>
+										</div>
+									</div>
+									<div class="section-home__slide swiper-slide">
+										<div class="section-home__embedded">
+											<video playsinline autoplay muted loop src="./assets/videos/home-3.mp4"></video>
+										</div>
+									</div>
+									<div class="section-home__slide swiper-slide">
+										<div class="section-home__embedded">
+											<video playsinline autoplay muted loop src="./assets/videos/home-4.mp4"></video>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
 </body>
 
 </html>
