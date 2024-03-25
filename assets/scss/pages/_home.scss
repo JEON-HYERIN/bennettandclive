@@ -1,12 +1,11 @@
 .section-home {
-	// height: 600vh;
 	height: 300lvh;
-	&__wrapper {
+	&__inner {
 		position: relative;
 		padding-bottom: 50lvh;
 		height: 100%;
 	}
-	&__inner {
+	&__content {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -18,27 +17,6 @@
     top: 0;
     height: 100lvh;
 		overflow: hidden;
-	}
-	&__videos {
-    position: absolute;
-    top: 0;
-    left: 0;
-		height: 100%;
-    width: 100%;
-		&::before {
-			opacity: 0;
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			backdrop-filter: blur(6rem);
-			transition: opacity .6s .8s;
-		}
-		&.is-visible::before {
-			opacity: 0;
-		}
 	}
 	&__list {
 		z-index: 1;
@@ -109,6 +87,33 @@
 			white-space: nowrap;
 		}
 	}
+	&__videos {
+    position: absolute;
+    top: 0;
+    left: 0;
+		height: 100%;
+    width: 100%;
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		&::before {
+			opacity: 0;
+			backdrop-filter: blur(6rem);
+			transition: opacity .6s .8s;
+		}
+		&.is-visible::before {
+			opacity: 0;
+		}
+		&::after {
+			background-color: rgba(0,0,0,.2);
+		}
+	}
 	&__video {
     position: absolute;
     top: 0;
@@ -129,6 +134,53 @@
 	}
 }
 
+.section-about {
+	margin-top: 1rem;
+	margin-bottom: 11.7rem;
+	@include desktop {
+    margin-top: 1.04167vw;
+		margin-bottom: 10.9375vw;
+	}
+	@include desktop-large {
+		margin-top: 2rem;
+	}
+	&__headline {
+		margin-bottom: 7rem;
+    padding-right: .5rem;
+		font-size: 6rem;
+    letter-spacing: -.07em;
+    line-height: .85;
+		@include not-mobile {
+			font-size: 13.54167vw;
+		}
+		@include desktop {
+			margin-bottom: 6.09375vw;
+			padding-left: 0;
+			padding-right: .52083vw;
+			font-size: 10.41667vw;
+			line-height: .77;
+		}
+		@include desktop-large {
+			padding-right: 1rem;
+			line-height: .73;
+		}
+		@at-root .headline {
+			&__row {
+				&--flex {
+					display: flex;
+				}
+			}
+			&__word {
+				.headline__row--flex &:nth-child(2) {
+					margin-left: auto;
+					margin-top: 20.5135vh;
+				}
+			}
+		}
+	}
+}
+
+
 .floating-logo {
 	position: fixed;
 	top: 50%;
@@ -136,10 +188,12 @@
 	transform: translate(-50%, -50%);
 	z-index: 9;
 	width: 100%;
+	&.is-blended {
+		mix-blend-mode: difference;
+	}
 	&__title {
 		position: absolute;
 		color: #fff;
-		mix-blend-mode: difference;
 		svg {
 			fill: currentColor;
 			width: 100%;

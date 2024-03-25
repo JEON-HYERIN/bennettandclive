@@ -8,12 +8,6 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0)
 
-const stickySlide = new Swiper('.section-home .swiper', {
-  direction: 'vertical',
-  parallax: true,
-  speed: 1200,
-  touchRatio: 0,
-})
 
 bar = gsap.timeline({
   scrollTrigger: {
@@ -24,17 +18,6 @@ bar = gsap.timeline({
   }
 })
 
-// document.querySelectorAll('.section-home__video').forEach((element, index) => {
-//   bar.to($('.section-home__video').eq(index), {
-//     ease: "none",
-//     onComplete: function () {
-//       stickySlide.slideTo(index + 1)
-//     },
-//     onReverseComplete: function () {
-//       stickySlide.slideTo(index - 1)
-//     }
-//   })
-// });
 document.querySelectorAll('.section-home__video').forEach((element, index) => {
   bar.fromTo($('.section-home__video').eq(index + 1), {
     yPercent: 100,
@@ -50,31 +33,19 @@ document.querySelectorAll('.section-home__video').forEach((element, index) => {
   )
 });
 
-// ScrollTrigger.create({
-//   trigger: '.section-home .first',
-//   start: '0% 0%',
-//   end: '100% 0',
-//   // markers: true,
-//   onLeaveBack: function () {
-//     imgEl = $('.section-home__title');
-//     total = imgEl.length;
-//     $('.first .section-home__title').eq(total).addClass('on');
-//   },
-//   onUpdate: function (self) {
-
-//     imgEl = $('.first .section-home__title');
-//     total = imgEl.length;
-//     currImg = Math.round(self.progress * total);
-//     curr = imgEl.eq(currImg);
-
-//     if ($('.first .section-home__title.on')) {
-//       imgEl.removeClass('on');
-//     }
-//     console.log(currImg, self.progress)
-
-//     if (curr) {
-//       curr.addClass('on');
-//     }
-//     // console.log(Math.round(self.progress * imgLength));
-//   }
-// })
+ScrollTrigger.create({
+  trigger: '.section-home',
+  start: '100% center',
+  end: 'bottom center',
+  scrub: 0,
+  markers: true,
+  onEnter: function() {
+    $('.floating-logo').removeClass('is-blended');
+  },
+  onLeaveBack: function() {
+    $('.floating-logo').removeClass('is-blended');
+  },
+  onLeave: function() {
+    $('.floating-logo').addClass('is-blended');
+  }
+})
