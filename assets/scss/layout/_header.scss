@@ -1,6 +1,9 @@
 .header {
 	position: fixed;
 	z-index: 9;
+	&.is-blended {
+		mix-blend-mode: difference;
+	}
 	@include desktop {
     top: .52083vw;
 		right: .52083vw;
