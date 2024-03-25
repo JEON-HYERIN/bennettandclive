@@ -38,7 +38,7 @@ ScrollTrigger.create({
   start: '100% center',
   end: 'bottom center',
   scrub: 0,
-  markers: true,
+  // markers: true,
   onEnter: function() {
     $('.floating-logo').removeClass('is-blended');
   },
