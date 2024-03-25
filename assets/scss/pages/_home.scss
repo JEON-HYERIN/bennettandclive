@@ -1,22 +1,15 @@
 .section-home {
 	// height: 600vh;
+	height: 300lvh;
 	&__wrapper {
 		position: relative;
 		padding-bottom: 50lvh;
-	}
-	&__triggers {
-		position: relative;
-		width: 0;
-		z-index: 1;
-	}
-	&__trigger {
-		height: 50lvh;
-		position: relative;
-		width: 100%;
+		height: 100%;
 	}
 	&__inner {
 		position: absolute;
 		top: 0;
+		left: 0;
 		width: 100%;
 		height: 100%;
 	}
@@ -26,32 +19,104 @@
     height: 100lvh;
 		overflow: hidden;
 	}
-	.swiper {
+	&__videos {
+    position: absolute;
+    top: 0;
+    left: 0;
 		height: 100%;
-		&-slide {
-
+    width: 100%;
+		&::before {
+			opacity: 0;
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			backdrop-filter: blur(6rem);
+			transition: opacity .6s .8s;
+		}
+		&.is-visible::before {
+			opacity: 0;
 		}
 	}
-	&__slides {
-		// height: 100%;
-    // left: 0;
-    // position: absolute;
-    // top: 0;
-    // width: 100%;
+	&__list {
+		z-index: 1;
+		&--top {
+			position: absolute;
+			top: 2.13333vw;
+			left: .4rem;
+			display: flex;
+			flex-direction: column;
+			@include desktop {
+				top: .52083vw;
+				left: .26042vw;
+			}
+			@include desktop-large {
+				top: 1rem;
+				left: .4rem;
+			}
+		}
+		&--bottom {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			margin-top: calc(50dvh + 4vw);
+			padding-right: 2.66667vw;
+			@include not-mobile {
+				padding-right: 1.5625vw;
+			}
+			@include desktop {
+				margin-top: calc(50dvh + 1.04167vw);
+				padding-right: .72917vw;
+			}
+		}
 	}
-	&__slide {
-		// height: 101%;
-    // width: 100%;
-		// left: 0;
-    -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
-    // position: absolute;
-    // top: 0;
-    will-change: transform;
+	&__item {
+		display: flex;
+		font-size: 6rem;
+    letter-spacing: -.07em;
+		color: #fff;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transform: scale(0);
+		@include not-mobile {
+			font-size: 13.54167vw;
+		}
+		@include desktop {
+			font-size: 10.41667vw;
+		}
+		&:not(:first-child) {
+			// position: absolute;
+			top: 0;
+			left: 0;
+		}
+		&.is-visible {
+			transform: scale(1);
+		}
+		.section-home__list--top & {
+			line-height: .85;
+			@include desktop {
+				line-height: .77;
+			}
+			@include desktop-large {
+				line-height: .73;
+			}
+		}
+		.section-home__list--bottom & {
+			line-height: .79;
+			white-space: nowrap;
+		}
 	}
-	&__embedded {
-		position: relative;
-    height: 100%;
+	&__video {
+    position: absolute;
+    top: 0;
+		left: 0;
     width: 100%;
+		height: 101%;
+    -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+    will-change: transform;
 		video {
 			position: absolute;
 			top: 0;
@@ -62,31 +127,71 @@
 			transition: opacity .4s;
 		}
 	}
-	&__titles {
-		position: absolute;
-		top: 1rem;
-		left: .4rem;
-		z-index: 2;
-	}
+}
+
+.floating-logo {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9;
+	width: 100%;
 	&__title {
-		font-size: 10.41667vw;
-		line-height: .73;
-		text-transform: uppercase;
+		position: absolute;
 		color: #fff;
-		display: flex;
-		white-space: nowrap;
-		transform: translateY(-100%);
-		&:first-child {
-			transform: scale(0);
+		mix-blend-mode: difference;
+		svg {
+			fill: currentColor;
+			width: 100%;
+			height: 100%;
 		}
-		&:not(:first-child) {
-			position: absolute;
-			top: 0;
-			left: 0;
-			transform: scale(0);
+		&--left {
+			top: calc(50% - 4.53333vw);
+			left: 1rem;
+			width: 51.73333vw;
+			height: 9.06667vw;
+			transform: scale(0.1215, 0.1215);
+			transform-origin: 0% 50%;
+			@include desktop {
+				top: calc(50% - 4.6875vw);
+				left: .52083vw;
+				width: 54.01042vw;
+				height: 9.375vw;
+			}
+			@include desktop-large {
+				left: 1rem;
+			}
 		}
-		&.on {
-			transform: translateY(0) scale(1);
+		&--center {
+			top: calc(50% - 4.53333vw);
+			left: calc(60% - 3.86667vw);
+			width: 7.73333vw;
+			height: 9.06667vw;
+			transform: translate(-163px, 0px) scale(0.1161, 0.1161);
+			transform-origin: 0% 50%;
+			@include desktop {
+				top: calc(50% - 4.79167vw);
+				left: calc(60% - 4.03646vw);
+				width: 8.07292vw;
+				height: 9.58333vw;
+			}
+		}
+		&--right {
+			top: calc(50% - 4.53333vw);
+			right: 1rem;
+			width: 31.46667vw;
+			height: 9.06667vw;
+			transform: scale(0.1213, 0.1213);
+			transform-origin: 100% 50%;
+			@include desktop {
+				top: calc(50% - 4.79167vw);
+				right: .52083vw;
+				width: 33.07292vw;
+				height: 9.58333vw;
+			}
+			@include desktop-large {
+				right: 1rem;
+			}
 		}
 	}
 }

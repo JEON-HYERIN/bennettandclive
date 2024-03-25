@@ -9,8 +9,8 @@
 }
 
 // media query
-@mixin desktop-large {
-  @media screen and (min-width: 1920px) {
+@mixin not-mobile {
+  @media screen and (min-width: 768px) {
     @content;
   }
 }
@@ -20,6 +20,13 @@
     @content;
   }
 }
+
+@mixin desktop-large {
+  @media screen and (min-width: 1920px) {
+    @content;
+  }
+}
+
 
 
 @mixin hover {
