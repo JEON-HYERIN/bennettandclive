@@ -9,7 +9,7 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0)
 
 
-bar = gsap.timeline({
+tl = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-home',
     start: '0% 0%',
@@ -19,7 +19,7 @@ bar = gsap.timeline({
 })
 
 document.querySelectorAll('.section-home__video').forEach((element, index) => {
-  bar.fromTo($('.section-home__video').eq(index + 1), {
+  tl.fromTo($('.section-home__video').eq(index + 1), {
     yPercent: 100,
   }, {
     yPercent: 0,
@@ -33,14 +33,24 @@ document.querySelectorAll('.section-home__video').forEach((element, index) => {
   )
 });
 
+blendedMode();
 $(window).on('scroll', function() {
+  blendedMode();
+})
+function blendedMode() {
   const target = $('.section-about').offset().top;
   const scroll = $(window).scrollTop();
-  if(scroll >= target) {
-    $('.header').addClass('is-blended');
+  const width = $(window).width();
+  if((scroll >= target) && (width >= 1024)) {
+    $('.global-nav__inner').addClass('is-blended');
   } else {
-    $('.header').removeClass('is-blended');
+    $('.global-nav__inner').removeClass('is-blended');
   }
+}
+
+
+$('.global-nav__menu').on('click', function() {
+  $('.global-nav').toggleClass('is-open');
 })
 
 

@@ -1,6 +1,7 @@
 .footer {
   margin-top: 18rem;
   padding-bottom: 1rem;
+  overflow: hidden;
   @include desktop {
     margin-top: 30rem;
     padding-bottom: .52083vw;
@@ -19,9 +20,14 @@
     }
   }
   &__column {
-   
+    display: flex;
+    flex-direction: column;
+    grid-column-end: span 2;
+    justify-content: space-between;
     @include not-mobile {
-     
+      grid-column-end: span 1;
+      justify-content: flex-end;
+      row-gap: .4em;
     }
   }
   &__list {
@@ -42,6 +48,9 @@
       row-gap: .4em;
       // grid-column-end: span 1;
     }
+    &--social {
+			row-gap: .2em;
+		}
   }
   &__item {
     .footer__list--contact & {

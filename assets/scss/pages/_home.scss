@@ -201,13 +201,16 @@
 			&__row {
 				&--flex {
 					display: flex;
+					// justify-content: space-between;
 				}
 			}
 
 			&__word {
 				.headline__row--flex &:nth-child(2) {
 					margin-left: auto;
-					margin-top: 20.5135vh;
+					@include desktop {
+						margin-top: 20.5135vh;
+					}
 				}
 			}
 		}
@@ -447,6 +450,7 @@
 			column-gap: 1rem;
 		}
 		&--reverse {
+			flex-direction: column-reverse;
 			@include desktop {
 				flex-direction: row-reverse;
 			}
@@ -507,7 +511,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 9;
+	z-index: 2;
 	width: 100%;
 
 	&.is-blended {
@@ -529,14 +533,15 @@
 			left: 1rem;
 			width: 51.73333vw;
 			height: 9.06667vw;
-			transform: scale(0.1215, 0.1215);
 			transform-origin: 0% 50%;
-
+			transform: scale(0.4072, 0.4072);
+			
 			@include desktop {
 				top: calc(50% - 4.6875vw);
 				left: .52083vw;
 				width: 54.01042vw;
 				height: 9.375vw;
+				transform: scale(0.1215, 0.1215);
 			}
 
 			@include desktop-large {
@@ -549,7 +554,7 @@
 			left: calc(60% - 3.86667vw);
 			width: 7.73333vw;
 			height: 9.06667vw;
-			transform: translate(-163px, 0px) scale(0.1161, 0.1161);
+			transform: translate(-27.8333px, 0px) scale(0.4135, 0.4135);
 			transform-origin: 0% 50%;
 
 			@include desktop {
@@ -557,6 +562,7 @@
 				left: calc(60% - 4.03646vw);
 				width: 8.07292vw;
 				height: 9.58333vw;
+				transform: translate(-163px, 0px) scale(0.1161, 0.1161);
 			}
 		}
 
@@ -565,7 +571,7 @@
 			right: 1rem;
 			width: 31.46667vw;
 			height: 9.06667vw;
-			transform: scale(0.1213, 0.1213);
+			transform: scale(0.4068, 0.4068);
 			transform-origin: 100% 50%;
 
 			@include desktop {
@@ -573,6 +579,7 @@
 				right: .52083vw;
 				width: 33.07292vw;
 				height: 9.58333vw;
+				transform: scale(0.1213, 0.1213);
 			}
 
 			@include desktop-large {
