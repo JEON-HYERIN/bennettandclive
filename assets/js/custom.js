@@ -8,6 +8,57 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0)
 
+$('a[href="#"]').on('click', function (e) {
+	e.preventDefault();
+});
+
+// 새로고침 시 사용자 스크롤 위치 저장하지 않음
+if (history.scrollRestoration) {
+  history.scrollRestoration = "manual";
+}
+
+const introMotion = gsap.timeline({
+  onStart: function() {
+    const bodyEl = document.querySelector('body');
+    const videolEls = document.querySelectorAll('video');
+
+    bodyEl.style.overflow = 'hidden';
+    bodyEl.classList.add('is-load');
+    videolEls.forEach(function(video, index) {
+      video.pause();
+    })
+  },
+  onComplete: function() {
+    const bodyEl = document.querySelector('body');
+    const videolEls = document.querySelectorAll('video');
+    const logo = document.querySelector('.floating');
+
+    bodyEl.removeAttribute('style');
+    bodyEl.classList.remove('is-load');
+    logo.removeAttribute('style');
+    videolEls.forEach(function(video, index) {
+      video.play();
+    })
+  }
+});
+introMotion
+.set('.floating', {color: 'black'})
+.fromTo('.loading .marquee__text span', {yPercent: 130}, {yPercent: 0, stargger: .4, duration: 1.2},"+=.6")
+.to('.loading__row:nth-child(1)', {yPercent: -130}, "+=.5")
+.to('.loading__row:nth-child(2)', {yPercent: 130}, "+=0")
+.to('.floating__logo', {scale: 0.36, duration: .8}, "+=.5")
+.set('.loading', {display: 'none'}, "+=.5")
+.set('.floating__logo', {opacity: 0}, "+=0")
+.to('.overlay', {opacity: 0, duration: .7},"+=1")
+.set('.floating', {color: 'white'},"+=0")
+.set('.floating__logo', {opacity: 1}, "+=0")
+.set('.floating__logo--left', {scale: 0.1215}, "+=0")
+.set('.floating__logo--center', {x: -163, scale: 0.1161}, "+=0")
+.set('.floating__logo--right', {scale: 0.123}, "+=0")
+.to('.section-home__item:nth-child(1)', {scale: 1, duration: .8}, "+=.5")
+
+
+
 
 tl = gsap.timeline({
   scrollTrigger: {
@@ -50,7 +101,7 @@ function blendedMode() {
 
 
 $('.global-nav__menu').on('click', function() {
-  $('.global-nav').toggleClass('is-open');
+  $('body').toggleClass('is-nav-open');
 })
 
 
@@ -61,13 +112,13 @@ ScrollTrigger.create({
   scrub: 0,
   // markers: true,
   onEnter: function() {
-    $('.floating-logo').removeClass('is-blended');
+    $('.floating').removeClass('is-blended');
   },
   onLeaveBack: function() {
-    $('.floating-logo').removeClass('is-blended');
+    $('.floating').removeClass('is-blended');
   },
   onLeave: function() {
-    $('.floating-logo').addClass('is-blended');
+    $('.floating').addClass('is-blended');
   }
 })
 

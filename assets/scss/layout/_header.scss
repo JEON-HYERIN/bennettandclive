@@ -25,7 +25,7 @@
 .global-nav {
 	&__inner {
 		position: fixed;
-		z-index: 3;
+		z-index: $z-index--gnb;
 		color: #fff;
 		&.is-blended {
 			mix-blend-mode: difference;
@@ -51,7 +51,7 @@
 			top: 0;
 			transition: opacity .3s cubic-bezier(.32, .94, .6, 1);
 
-			.global-nav.is-open & {
+			.is-nav-open & {
 				opacity: 1;
 				pointer-events: auto;
 				transition-duration: .6s;
@@ -69,7 +69,7 @@
 		right: 1rem;
 		top: 1rem;
 		width: 3.6rem;
-		z-index: 4;
+		z-index: $z-index--menu;
 
 		&::before {
 			background-color: transparent;
@@ -101,8 +101,8 @@
 				transform: scaleX(1);
 			}
 
-			.is-open &,
-			.is-open &::before {
+			.is-nav-open &,
+			.is-nav-open &::before {
 				transform: scaleX(0);
 			}
 
@@ -110,7 +110,7 @@
 				&::before {
 					transition-delay: .65s;
 
-					.is-open & {
+					.is-nav-open & {
 						transition-delay: 0s;
 					}
 				}
@@ -122,7 +122,7 @@
 				&::before {
 					transition-delay: .75s;
 
-					.is-open & {
+					.is-nav-open & {
 						transition-delay: .1s;
 					}
 				}
@@ -148,7 +148,7 @@
 			&::before {
 				transform: scaleX(0);
 
-				.is-open & {
+				.is-nav-open & {
 					transform: scaleX(1);
 				}
 			}
@@ -159,7 +159,7 @@
 				&::before {
 					transition-delay: 0s;
 
-					.is-open & {
+					.is-nav-open & {
 						transition-delay: .65s;
 					}
 				}
@@ -171,7 +171,7 @@
 				&::before {
 					transition-delay: .1s;
 
-					.is-open & {
+					.is-nav-open & {
 						transition-delay: .75s;
 					}
 				}
@@ -236,7 +236,7 @@
 			transform-origin: bottom left;
 			transition: transform .8s cubic-bezier(.32, .94, .6, 1);
 
-			.global-nav.is-open & {
+			.is-nav-open & {
 				transform: scale(1);
 			}
 
@@ -313,7 +313,7 @@
 			align-items: center;
 		}
 	}
-	&.is-open .footer__content {
+	.is-nav-open & .footer__content {
 		opacity: 1;
 	}
 	.footer__logo {
@@ -328,6 +328,9 @@
     transform: translateY(-50%);
     width: 100%;
 		margin: 0;
+		@include desktop {
+			display: none;
+		}
 	}
 	.footer__icon {
 		height: 3.73333vw;

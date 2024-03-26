@@ -141,7 +141,7 @@ button {
 
 .global-nav__inner {
   position: fixed;
-  z-index: 3;
+  z-index: 10;
   color: #fff;
 }
 .global-nav__inner.is-blended {
@@ -173,7 +173,7 @@ button {
     top: 0;
     transition: opacity 0.3s cubic-bezier(0.32, 0.94, 0.6, 1);
   }
-  .global-nav.is-open .global-nav__inner {
+  .is-nav-open .global-nav__inner {
     opacity: 1;
     pointer-events: auto;
     transition-duration: 0.6s;
@@ -189,7 +189,7 @@ button {
   right: 1rem;
   top: 1rem;
   width: 3.6rem;
-  z-index: 4;
+  z-index: 20;
 }
 .global-nav__menu::before {
   background-color: transparent;
@@ -219,13 +219,13 @@ button {
 .is-visible .global-nav__open .global-nav__line, .is-visible .global-nav__open .global-nav__line::before {
   transform: scaleX(1);
 }
-.is-open .global-nav__open .global-nav__line, .is-open .global-nav__open .global-nav__line::before {
+.is-nav-open .global-nav__open .global-nav__line, .is-nav-open .global-nav__open .global-nav__line::before {
   transform: scaleX(0);
 }
 .global-nav__open .global-nav__line:nth-child(1)::before {
   transition-delay: 0.65s;
 }
-.is-open .global-nav__open .global-nav__line:nth-child(1)::before {
+.is-nav-open .global-nav__open .global-nav__line:nth-child(1)::before {
   transition-delay: 0s;
 }
 .global-nav__open .global-nav__line:nth-child(2) {
@@ -234,7 +234,7 @@ button {
 .global-nav__open .global-nav__line:nth-child(2)::before {
   transition-delay: 0.75s;
 }
-.is-open .global-nav__open .global-nav__line:nth-child(2)::before {
+.is-nav-open .global-nav__open .global-nav__line:nth-child(2)::before {
   transition-delay: 0.1s;
 }
 .global-nav__close {
@@ -255,7 +255,7 @@ button {
 .global-nav__close .global-nav__line::before {
   transform: scaleX(0);
 }
-.is-open .global-nav__close .global-nav__line::before {
+.is-nav-open .global-nav__close .global-nav__line::before {
   transform: scaleX(1);
 }
 .global-nav__close .global-nav__line:first-child {
@@ -264,7 +264,7 @@ button {
 .global-nav__close .global-nav__line:first-child::before {
   transition-delay: 0s;
 }
-.is-open .global-nav__close .global-nav__line:first-child::before {
+.is-nav-open .global-nav__close .global-nav__line:first-child::before {
   transition-delay: 0.65s;
 }
 .global-nav__close .global-nav__line:nth-child(2) {
@@ -273,7 +273,7 @@ button {
 .global-nav__close .global-nav__line:nth-child(2)::before {
   transition-delay: 0.1s;
 }
-.is-open .global-nav__close .global-nav__line:nth-child(2)::before {
+.is-nav-open .global-nav__close .global-nav__line:nth-child(2)::before {
   transition-delay: 0.75s;
 }
 .global-nav__line {
@@ -330,7 +330,7 @@ button {
     transform-origin: bottom left;
     transition: transform 0.8s cubic-bezier(0.32, 0.94, 0.6, 1);
   }
-  .global-nav.is-open .global-nav__link {
+  .is-nav-open .global-nav__link {
     transform: scale(1);
   }
   .global-nav__item:nth-child(1) .global-nav__link {
@@ -405,7 +405,7 @@ button {
 .global-nav .footer__list--contact .footer__item {
   align-items: center;
 }
-.global-nav.is-open .footer__content {
+.is-nav-open .global-nav .footer__content {
   opacity: 1;
 }
 .global-nav .footer__logo {
@@ -420,6 +420,11 @@ button {
   transform: translateY(-50%);
   width: 100%;
   margin: 0;
+}
+@media screen and (min-width: 1024px) {
+  .global-nav .footer__logo {
+    display: none;
+  }
 }
 .global-nav .footer__icon {
   height: 3.73333vw;
@@ -595,6 +600,80 @@ button {
   }
 }
 
+.loading {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  justify-content: space-between;
+  left: 0;
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 40;
+}
+@media screen and (min-width: 1024px) {
+  .loading {
+    padding: 0.52083vw 0;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .loading {
+    padding: 1rem 0;
+  }
+}
+.loading__content {
+  font-size: 6.25vw;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  display: flex;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .loading__content {
+    font-size: 4.16667vw;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .loading__content {
+    font-size: 2.60417vw;
+  }
+}
+.loading__content:nth-child(1) {
+  justify-content: center;
+  text-align: center;
+}
+.marquee {
+  display: flex;
+  width: 100%;
+}
+.marquee__inner {
+  display: flex;
+}
+.marquee__texts {
+  display: flex;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+}
+.marquee__text {
+  -moz-column-gap: 0.7em;
+       column-gap: 0.7em;
+  display: flex;
+  padding-left: 0.7em;
+  white-space: nowrap;
+}
+@keyframes marquee {
+  0% {
+    transform: translate(-100%, 0px);
+  }
+  100% {
+    transform: translate(-200%, 0px);
+  }
+}
 .section-home {
   height: 300lvh;
 }
@@ -680,9 +759,6 @@ button {
   top: 0;
   left: 0;
 }
-.section-home__item.is-visible {
-  transform: scale(1);
-}
 .section-home__list--top .section-home__item {
   line-height: 0.85;
 }
@@ -707,24 +783,13 @@ button {
   height: 100%;
   width: 100%;
 }
-.section-home__videos::before, .section-home__videos::after {
+.section-home__videos::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
-.section-home__videos::before {
-  opacity: 0;
-  -webkit-backdrop-filter: blur(6rem);
-          backdrop-filter: blur(6rem);
-  transition: opacity 0.6s 0.8s;
-}
-.section-home__videos.is-visible::before {
-  opacity: 0;
-}
-.section-home__videos::after {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .section-home__video {
@@ -1115,27 +1180,33 @@ button {
   height: 100%;
 }
 
-.floating-logo {
+.floating {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 50;
   width: 100%;
-}
-.floating-logo.is-blended {
-  mix-blend-mode: difference;
-}
-.floating-logo__title {
-  position: absolute;
   color: #fff;
 }
-.floating-logo__title svg {
+.floating.is-blended {
+  mix-blend-mode: difference;
+}
+.is-nav-open .floating {
+  opacity: 0;
+}
+.floating__link {
+  display: block;
+}
+.floating__logo {
+  position: absolute;
+}
+.floating__logo svg {
   fill: currentColor;
   width: 100%;
   height: 100%;
 }
-.floating-logo__title--left {
+.floating__logo--left {
   top: calc(50% - 4.53333vw);
   left: 1rem;
   width: 51.73333vw;
@@ -1144,7 +1215,7 @@ button {
   transform: scale(0.4072, 0.4072);
 }
 @media screen and (min-width: 1024px) {
-  .floating-logo__title--left {
+  .floating__logo--left {
     top: calc(50% - 4.6875vw);
     left: 0.52083vw;
     width: 54.01042vw;
@@ -1153,11 +1224,14 @@ button {
   }
 }
 @media screen and (min-width: 1920px) {
-  .floating-logo__title--left {
+  .floating__logo--left {
     left: 1rem;
   }
 }
-.floating-logo__title--center {
+.is-load .floating__logo--left {
+  transform: none;
+}
+.floating__logo--center {
   top: calc(50% - 4.53333vw);
   left: calc(60% - 3.86667vw);
   width: 7.73333vw;
@@ -1166,15 +1240,18 @@ button {
   transform-origin: 0% 50%;
 }
 @media screen and (min-width: 1024px) {
-  .floating-logo__title--center {
+  .floating__logo--center {
     top: calc(50% - 4.79167vw);
     left: calc(60% - 4.03646vw);
     width: 8.07292vw;
     height: 9.58333vw;
     transform: translate(-163px, 0px) scale(0.1161, 0.1161);
   }
+  .is-load .floating__logo--center {
+    transform: none;
+  }
 }
-.floating-logo__title--right {
+.floating__logo--right {
   top: calc(50% - 4.53333vw);
   right: 1rem;
   width: 31.46667vw;
@@ -1183,16 +1260,31 @@ button {
   transform-origin: 100% 50%;
 }
 @media screen and (min-width: 1024px) {
-  .floating-logo__title--right {
+  .floating__logo--right {
     top: calc(50% - 4.79167vw);
     right: 0.52083vw;
     width: 33.07292vw;
     height: 9.58333vw;
     transform: scale(0.1213, 0.1213);
   }
+  .is-load .floating__logo--right {
+    transform: none;
+  }
 }
 @media screen and (min-width: 1920px) {
-  .floating-logo__title--right {
+  .floating__logo--right {
     right: 1rem;
   }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(6rem);
+          backdrop-filter: blur(6rem);
 }
