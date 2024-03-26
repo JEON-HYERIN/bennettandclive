@@ -14,7 +14,9 @@
   }
   &__content {
     @include grid;
-    row-gap: 2.6rem;
+    @include tablet {
+      row-gap: 2.6rem;
+    }
     @include desktop {
       row-gap: 1.45833vw;
     }
