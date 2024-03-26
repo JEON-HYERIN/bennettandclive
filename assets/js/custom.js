@@ -31,13 +31,18 @@ const introMotion = gsap.timeline({
   onComplete: function() {
     const bodyEl = document.querySelector('body');
     const videolEls = document.querySelectorAll('video');
-    const logo = document.querySelector('.floating');
+    const floating = document.querySelector('.floating');
+    const floatingLogoEls = floating.querySelectorAll('.floating__logo');
 
     bodyEl.removeAttribute('style');
     bodyEl.classList.remove('is-load');
-    logo.removeAttribute('style');
+    floating.removeAttribute('style');
     videolEls.forEach(function(video, index) {
       video.play();
+    })
+
+    floatingLogoEls.forEach(function(logo, index) {
+      logo.removeAttribute('style');
     })
   }
 });
@@ -55,6 +60,7 @@ introMotion
 .set('.floating__logo--left', {scale: 0.1215}, "+=0")
 .set('.floating__logo--center', {x: -163, scale: 0.1161}, "+=0")
 .set('.floating__logo--right', {scale: 0.123}, "+=0")
+.from('.global-nav__link', {opacity: 0, y: 10, stagger: .2, ease: 'none'}, "+=.2")
 .to('.section-home__item:nth-child(1)', {scale: 1, duration: .8}, "+=.5")
 
 
@@ -93,17 +99,38 @@ function blendedMode() {
   const scroll = $(window).scrollTop();
   const width = $(window).width();
   if((scroll >= target) && (width >= 1024)) {
-    $('.global-nav__inner').addClass('is-blended');
+    $('.global-nav__panel').addClass('is-blended');
   } else {
-    $('.global-nav__inner').removeClass('is-blended');
+    $('.global-nav__panel').removeClass('is-blended');
   }
 }
 
 
 $('.global-nav__menu').on('click', function() {
-  $('body').toggleClass('is-nav-open');
-})
+  const navMenuEl = document.querySelector('.global-nav__menu');
+  const bodyEl = document.querySelector('body');
+  const CLASSNAME = 'is-nav-open';
 
+  if(window.innerWidth <= 1023) {
+    bodyEl.classList.toggle(CLASSNAME);
+    if(bodyEl.classList.contains(CLASSNAME)) {
+      navMenuEl.setAttribute('aria-label', 'Close navigation');
+    } else {
+      navMenuEl.setAttribute('aria-label', 'Open navigation');
+    }
+  }
+});
+
+window.addEventListener('resize', function() {
+  const navMenuEl = document.querySelector('.global-nav__menu');
+  const bodyEl = document.querySelector('body');
+  const CLASSNAME = 'is-nav-open';
+
+  if (window.innerWidth >= 1024) {
+     bodyEl.classList.remove(CLASSNAME);
+    navMenuEl.setAttribute('aria-label', 'Open navigation');
+  }
+})
 
 ScrollTrigger.create({
   trigger: '.section-home',

@@ -1,96 +1,71 @@
-.header {
-	// position: fixed;
-	// z-index: 9;
-	// color: #fff;
-	// transition: color .6s cubic-bezier(.32,.94,.6,1);
-	// &.is-blended {
-	// 	mix-blend-mode: difference;
-	// }
-
-	@include tablet {
-		// mix-blend-mode: difference;
-	}
-
-	@include desktop {
-		top: .52083vw;
-		right: .52083vw;
-	}
-
-	@include desktop-large {
+.global-nav {
+	&__menu {
+		position: fixed;
 		top: 1rem;
 		right: 1rem;
-	}
-}
-
-.global-nav {
-	&__inner {
-		position: fixed;
-		z-index: $z-index--gnb;
-		color: #fff;
-		&.is-blended {
-			mix-blend-mode: difference;
-		}
-		@include desktop {
-			right: .52083vw;
-			top: .52083vw;
-		}
-		@include desktop-large {
-			right: 1rem;
-			top: 1rem;
-		}
-		@include tablet {
-			background-color: #000;
-			display: flex;
-			flex-direction: column;
-			height: 100dvh;
-			justify-content: space-between;
-			left: 0;
-			opacity: 0;
-			pointer-events: none;
-			right: 0;
-			top: 0;
-			transition: opacity .3s cubic-bezier(.32, .94, .6, 1);
-
-			.is-nav-open & {
-				opacity: 1;
-				pointer-events: auto;
-				transition-duration: .6s;
-			}
-		}
-	}
-
-	&__menu {
-		align-items: center;
 		display: flex;
+		align-items: center;
+		z-index: $z-index--menu;
+		width: 3.6rem;
 		height: 2.9rem;
 		color: #fff;
 		mix-blend-mode: difference;
-		position: fixed;
-		right: 1rem;
-		top: 1rem;
-		width: 3.6rem;
-		z-index: $z-index--menu;
 
 		&::before {
-			background-color: transparent;
-			bottom: -2rem;
-			content: "";
-			left: -2rem;
+			content: '';
 			position: absolute;
-			right: -2rem;
 			top: -2rem;
+			left: -2rem;
+			right: -2rem;
+			bottom: -2rem;
 		}
 		@include desktop {
 			display: none;
 		}
 	}
 
+	&__panel {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: $z-index--gnb;
+		color: #fff;
+		&.is-blended {
+			mix-blend-mode: difference;
+		}
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			pointer-events: none;
+			background-color: #000;
+			transition: opacity .3s cubic-bezier(.32, .94, .6, 1);
+			.is-nav-open & {
+				opacity: 1;
+				pointer-events: auto;
+				transition-duration: .6s;
+			}
+		}
+		@include desktop {
+			top: .52083vw;
+			left: auto;
+			right: .52083vw;
+		}
+		@include desktop-large {
+			top: 1rem;
+			right: 1rem;
+		}
+	}
+
 	&__open {
 		display: flex;
 		flex-direction: column;
-		height: 1.7rem;
 		justify-content: space-between;
 		width: 3.6rem;
+		height: 1.7rem;
 
 		.global-nav__line {
 			transform: scaleX(0);
@@ -131,19 +106,17 @@
 	}
 
 	&__close {
-		display: flex;
-		height: 100%;
-		left: 0;
 		position: absolute;
 		top: 0;
+		left: 0;
+		display: flex;
 		width: 100%;
+		height: 100%;
 
 		.global-nav__line {
-			left: calc(50% - 1.8rem);
 			position: absolute;
 			top: calc(50% - .2rem);
-			transform-origin: 50% 50% 0;
-			transform-origin: initial;
+			left: calc(50% - 1.8rem);
 
 			&::before {
 				transform: scaleX(0);
@@ -181,19 +154,19 @@
 
 	&__line {
 		display: block;
-		height: .5rem;
 		width: 3.6rem;
+		height: .5rem;
 
 		&::before {
-			background-color: currentColor;
-			content: "";
-			height: 100%;
-			left: 0;
+			content: '';
 			position: absolute;
 			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: currentColor;
 			transform-origin: right;
 			transition: transform .8s cubic-bezier(.32, .94, .6, 1);
-			width: 100%;
 		}
 	}
 
@@ -292,13 +265,12 @@
 		}
 	}
 	.footer__content {
-		opacity: 0;
-    transition: opacity .6s cubic-bezier(.32,.94,.6,1);
-    transition-delay: .4s;
-		padding-bottom: 2.2rem;
 		row-gap: 2rem;
+		padding-bottom: 2.2rem;
+		opacity: 0;
+    transition: opacity .6s cubic-bezier(.32,.94,.6,1) .4s;
 		@include mobile {
-		grid-template-columns: auto;
+			grid-template-columns: auto;
 		}
 		@include desktop {
 			display: none;
@@ -316,33 +288,32 @@
 	.is-nav-open & .footer__content {
 		opacity: 1;
 	}
-	.footer__logo {
-		fill: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    pointer-events: none;
-    position: fixed;
+	.footer__logos {
+    position: absolute;
     top: 50%;
+		left: 0;
     transform: translateY(-50%);
+		display: flex;
+    justify-content: space-between;
     width: 100%;
-		margin: 0;
+		padding: 0 1rem;
+		fill: #fff;
 		@include desktop {
 			display: none;
 		}
 	}
-	.footer__icon {
+	.footer__logo {
 		height: 3.73333vw;
     width: auto;
+		margin: 0;
 		&--center {
-			left: 50%;
 			position: absolute;
+			left: 50%;
 			transform: translateX(-50%);
 		}
 		svg {
-			height: 100%;
 			width: 100%;
+			height: 100%;
 		}
 	}
 }
