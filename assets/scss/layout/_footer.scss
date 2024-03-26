@@ -1,0 +1,108 @@
+.footer {
+  margin-top: 18rem;
+  padding-bottom: 1rem;
+  @include desktop {
+    margin-top: 30rem;
+    padding-bottom: .52083vw;
+  }
+  @include desktop-medium {
+    margin-top: 15.625vw;
+  }
+  @include desktop-large {
+    padding-bottom: 1rem;
+  }
+  &__content {
+    @include grid;
+    row-gap: 2.6rem;
+    @include desktop {
+      row-gap: 1.45833vw;
+    }
+  }
+  &__column {
+   
+    @include not-mobile {
+     
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // grid-column-end: span 2;
+    height: 100%;
+    font-size: 1.4rem;
+    letter-spacing: -.05em;
+    line-height: 1.2;
+    @include desktop {
+      font-size: 1.04167vw;
+      line-height: 1;
+    }
+    @include not-mobile {
+      justify-content: flex-end;
+      row-gap: .4em;
+      // grid-column-end: span 1;
+    }
+  }
+  &__item {
+    .footer__list--contact & {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      @include not-mobile {
+        row-gap: .4em;
+      }
+    }
+    .footer__list--office & {
+      display: flex;
+      white-space: nowrap;
+    }
+  }
+  .clock {
+    display: flex;
+    &__hour {}
+    &__colon {
+      animation: blink 1s step-start infinite;
+    }
+    &__minute {}
+    @keyframes blink {
+      50% {
+          opacity: 0
+      }
+  }
+  }
+  &__link {
+    position: relative;
+    &::before {
+      background-color: currentColor;
+      bottom: 0;
+      content: "";
+      height: .2rem;
+      left: 0;
+      position: absolute;
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: transform .4s cubic-bezier(.32,.94,.6,1);
+      width: 100%;
+    }
+    &:hover::before {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+  }
+  &__logo {
+    // fill: red;
+    display: flex;
+    margin: 3.2rem 1rem 0;
+    // opacity: 0;
+    @include not-mobile {
+      margin-left: 1.5625vw;
+      margin-right: 1.5625vw;
+    }
+    @include desktop {
+      margin: 4.27083vw .52083vw 0;
+    }
+    @include desktop-large {
+      margin: 8.2rem 1rem 0;
+    }
+  }
+}
