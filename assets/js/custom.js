@@ -26,6 +26,7 @@ const introMotion = gsap.timeline({
     bodyEl.classList.add('is-load');
     videolEls.forEach(function (video, index) {
       video.pause();
+      lenis.stop();
     })
   },
   onComplete: function () {
@@ -39,6 +40,7 @@ const introMotion = gsap.timeline({
     floating.removeAttribute('style');
     videolEls.forEach(function (video, index) {
       video.play();
+      lenis.start();
     })
 
     floatingLogoEls.forEach(function (logo, index) {
@@ -231,80 +233,53 @@ const getRealTime = () => {
 }
 getRealTime();
 
-
-
-// const tl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: '.section-home',
-//     start: '0% 0%',
-//     end: '100% 100%',
-//     scrub: 0
-//   }
-// })
-
-// document.querySelectorAll('.section-service__list--right .section-service__item').forEach(function(el, index) {
-//   tl.to($('.section-service__list--right .section-service__item').eq(index).find('.section-service__text'), {
-//     scale: 0
+// const homeLists = document.querySelectorAll('.section-home__link');
+// homeLists.forEach(function(item, index) {
+//   gsap.to(item, {
+//     scale: 1,
+//     yPercent: -110,
+//     scrollTrigger: {
+//       trigger: item,
+//       start: 'top 60%',
+// 			end: 'bottom 60%',
+// 			scrub: 0,
+//       markers: true,
+//       stagger: .2
+//     }
 //   })
-// })
-
-// ScrollTrigger.create({
-//   trigger: '.section-service',
-//   start: '0% 0%',
-//   end: '100% 0',
-//   markers: true,
-//   onLeaveBack: function() {
-//     imgEl = $('.section-service__list--right .section-service__item');
-//     total = imgEl.length;
-//     // $('.section-service__list--right .section-service__item').eq(total).addClass('on');
-//   },
-//   onUpdate: function(self) {
-
-//     imgEl = $('.section-service__list--right .section-service__item');
-//     total = imgEl.length;
-//     currImg = Math.round((self.progress * total));
-//     curr = imgEl.eq(currImg).find('.section-service__text');
-//     console.log(currImg);
-
-//     gsap.to(curr, {
-//       scale: 0,
-//       duration: .2,
-//     })
-
-
-//     if($('.section-service__list--right .section-service__item.on')) {
-//       // imgEl.removeClass('on');
-//     }
-
-//     if(curr) {
-//       // curr.addClass('on');
-//     }
-//     // console.log(Math.round(self.progress * imgLength));
-//   }
-// })
-
-// const reveal = gsap.utils.toArray('.section-service__list--right .section-service__item');
-//   reveal.forEach((text,i)=>{
-//     ScrollTrigger.create({
-//      trigger:text,
-//     //  toggleClass:'active',
-//     //  start:"top 90%",
-//     //  end:"top 20%",
-//       start: '0% 0%',
-//       // end: '50% 0',
-//      markers:true,
-//      scrub:true,
-//      onUpdate: function(self) {
-//       gsap.fromTo($('.section-service__list--right .section-service__item').eq(i).find('.section-service__text'), {
-//         scale: 1,
-//       }, {
-//         scale: 0,
-//         duration: Math.round(self.progress),
-//       })
-//       console.log(i)
-//      }
-//   });
 // });
 
-// const tl = gsap.timeline({});
-// tl.fromTo('')
+let mm = gsap.matchMedia();
+mm.add("(min-width: 1024px)", () => {
+  const partners = document.querySelectorAll('.section-partner__column');
+  partners.forEach(function(el, index) {
+    if(el.dataset.direction === 'left') {
+      gsap.to(el, {
+        x: -100,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          stagger: .2,
+          scrub: 1,
+          ease: "power3.out",
+          // markers: true
+        }
+      })
+    }
+    if(el.dataset.direction === 'right') {
+      gsap.to(el, {
+        x: 100,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          stagger: .2,
+          scrub: 1,
+          ease: "power3.out",
+          markers: true
+        }
+      })
+    }
+  });
+})
