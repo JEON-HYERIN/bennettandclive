@@ -64,8 +64,9 @@
       white-space: nowrap;
     }
   }
-  .clock {
+  @at-root .clock {
     display: flex;
+    margin-left: 5px;
     &__colon {
       animation: blink 1s step-start infinite;
     }

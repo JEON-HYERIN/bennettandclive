@@ -530,12 +530,14 @@ button {
   display: flex;
   white-space: nowrap;
 }
-.footer .clock {
+.clock {
   display: flex;
+  margin-left: 5px;
 }
-.footer .clock__colon {
+.clock__colon {
   animation: blink 1s step-start infinite;
 }
+
 @keyframes blink {
   50% {
     opacity: 0;

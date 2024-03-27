@@ -11,7 +11,7 @@
 	height: 100svh;
 	padding: 1rem;
 	background-color: #fff;
-	@include desktop {
+@include desktop {
 		padding: .52083vw 0;	
 	}
 	@include desktop-large {
