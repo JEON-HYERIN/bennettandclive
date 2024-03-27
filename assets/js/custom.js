@@ -23,7 +23,6 @@ const introMotion = gsap.timeline({
     const videolEls = document.querySelectorAll('video');
 
     bodyEl.style.overflow = 'hidden';
-    bodyEl.classList.add('is-load');
     videolEls.forEach(function (video, index) {
       video.pause();
       lenis.stop();
@@ -32,79 +31,53 @@ const introMotion = gsap.timeline({
   onComplete: function () {
     const bodyEl = document.querySelector('body');
     const videolEls = document.querySelectorAll('video');
-    const floating = document.querySelector('.floating');
-    const floatingLogoEls = floating.querySelectorAll('.floating__logo');
 
     bodyEl.removeAttribute('style');
-    bodyEl.classList.remove('is-load');
-    floating.removeAttribute('style');
     videolEls.forEach(function (video, index) {
       video.play();
       lenis.start();
     })
-
-    floatingLogoEls.forEach(function (logo, index) {
-      logo.removeAttribute('style');
-    })
   }
 });
 introMotion
-  .set('.floating', {
-    color: 'black'
-  })
   .fromTo('.loading .marquee__text span', {
-    yPercent: 130
+    yPercent: 110,
+    x: -40
   }, {
     yPercent: 0,
-    stargger: .4,
-    duration: 1.2
-  }, "+=.6")
-  .to('.loading__row:nth-child(1)', {
-    yPercent: -130
-  }, "+=.5")
-  .to('.loading__row:nth-child(2)', {
-    yPercent: 130
+    stargger: .3,
+    duration: 1.5
+  })
+  .to('.loading__content:nth-child(1)', {
+    yPercent: -130, y: -20, duration: .8, delay: 0.5
+  })
+  .to('.loading__content:nth-child(2)', {
+    yPercent: 130, y: 20, duration: .8
   }, "+=0")
-  .to('.floating__logo', {
+  .to('.loading .emblem__logo', {
     scale: 0.36,
     duration: .8
   }, "+=.5")
+  .set('.loading .emblem__logo', {
+    opacity: 0
+  }, "+=.2")
   .set('.loading', {
     display: 'none'
   }, "+=.5")
-  .set('.floating__logo', {
-    opacity: 0
-  }, "+=0")
   .to('.overlay', {
     opacity: 0,
     duration: .7
-  }, "+=1")
-  .set('.floating', {
-    color: 'white'
-  }, "+=0")
-  .set('.floating__logo', {
-    opacity: 1
-  }, "+=0")
-  .set('.floating__logo--left', {
-    scale: 0.1215
-  }, "+=0")
-  .set('.floating__logo--center', {
-    x: -163,
-    scale: 0.1161
-  }, "+=0")
-  .set('.floating__logo--right', {
-    scale: 0.123
-  }, "+=0")
+  }, "+=.5")
   .from('.global-nav__link', {
     opacity: 0,
     y: 10,
     stagger: .2,
-    ease: 'none'
+    // ease: 'none'
   }, "+=.2")
   .to('.section-home__item:nth-child(1)', {
     scale: 1,
     duration: .8
-  }, "+=.5")
+  }, "+=.2")
 
 
 
@@ -182,13 +155,13 @@ ScrollTrigger.create({
   scrub: 0,
   // markers: true,
   onEnter: function () {
-    $('.floating').removeClass('is-blended');
+    $('.emblem').removeClass('is-blended');
   },
   onLeaveBack: function () {
-    $('.floating').removeClass('is-blended');
+    $('.emblem').removeClass('is-blended');
   },
   onLeave: function () {
-    $('.floating').addClass('is-blended');
+    $('.emblem').addClass('is-blended');
   }
 })
 
@@ -203,7 +176,7 @@ const getRealTime = () => {
     const utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000);
     const time = diff * 60 * 60 * 1000;
     const current = new Date(utc + (time));
-  
+
     currentHour = current.getHours();
     currentMinute = current.getMinutes();
   }
@@ -211,7 +184,7 @@ const getRealTime = () => {
     clocks.forEach(function (clock, index) {
       const hour = clock.querySelector('.clock__hour');
       const minute = clock.querySelector('.clock__minute');
-    
+
       if (clock.dataset.zone === 'newyork') {
         getTime(-4);
         hour.textContent = currentHour;
@@ -233,27 +206,11 @@ const getRealTime = () => {
 }
 getRealTime();
 
-// const homeLists = document.querySelectorAll('.section-home__link');
-// homeLists.forEach(function(item, index) {
-//   gsap.to(item, {
-//     scale: 1,
-//     yPercent: -110,
-//     scrollTrigger: {
-//       trigger: item,
-//       start: 'top 60%',
-// 			end: 'bottom 60%',
-// 			scrub: 0,
-//       markers: true,
-//       stagger: .2
-//     }
-//   })
-// });
-
 let mm = gsap.matchMedia();
 mm.add("(min-width: 1024px)", () => {
   const partners = document.querySelectorAll('.section-partner__column');
-  partners.forEach(function(el, index) {
-    if(el.dataset.direction === 'left') {
+  partners.forEach(function (el, index) {
+    if (el.dataset.direction === 'left') {
       gsap.to(el, {
         x: -100,
         scrollTrigger: {
@@ -267,7 +224,7 @@ mm.add("(min-width: 1024px)", () => {
         }
       })
     }
-    if(el.dataset.direction === 'right') {
+    if (el.dataset.direction === 'right') {
       gsap.to(el, {
         x: 100,
         scrollTrigger: {
@@ -277,9 +234,98 @@ mm.add("(min-width: 1024px)", () => {
           stagger: .2,
           scrub: 1,
           ease: "power3.out",
-          markers: true
+          // markers: true
         }
       })
     }
   });
 })
+
+const tl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.footer',
+    start: '50% 100%',
+    end: 'bottom bottom',
+    scrub: 0,
+    // duration: 4,
+    // markers: true
+  }
+});
+tl2
+  .to('.emblem__logo', {
+    y: '50vh'
+  }, "+=0")
+  .to('.emblem__logo svg', {
+    yPercent: -50
+  }, "+=0")
+  .to('.emblem__logo', {
+    x: 0,
+    scale: 1
+  }, "+=0")
+
+const serviceLists = document.querySelectorAll('.section-service__item');
+serviceLists.forEach(function(el, index) {
+  if(el.parentElement.classList.contains('section-service__list--left')) {
+    const text = el.querySelector('.section-service__text');
+    // gsap.to(text, {
+    //   // y: '-52vh',
+    //   scale: 1,
+    //   scrollTrigger: {
+    //     trigger: text,
+    //     start: 'top 60%',
+    //     end: 'bottom 60%',
+    //     scrub: 0,
+    //     stagger: .2,
+    //     duration: .5,
+    //     delay: el.dataset.delay,
+    //     markers: true
+    //   }
+    // })
+  }
+  if(el.parentElement.classList.contains('section-service__list--right')) {
+    const text = el.querySelector('.section-service__text');
+    gsap.to(text, {
+      scale: 0,
+      scrollTrigger: {
+        trigger: text,
+        start: 'top 60%',
+        end: 'bottom 60%',
+        scrub: 0,
+        stagger: .2,
+        duration: .5,
+        // markers: true
+      }
+    })
+  }
+});
+
+gsap.fromTo('.section-about__headline .headline__row--flex .headline__word:nth-child(2)', {
+  y: '45vh',
+  }, {
+    y: 0,
+    scrollTrigger: {
+      trigger: '.section-about',
+      start: '-40% top',
+      end: '50% top',
+      scrub: 0,
+      // markers: true
+    }
+});
+
+
+checkTiny()
+$(window).on('scroll resize', function() {
+  checkTiny();
+});
+
+function checkTiny() {
+  const scroll = $(window).scrollTop();
+  
+  if($(window).width() <= 1023) {
+    if(scroll > 0) {
+      $('.emblem').addClass('is-tiny');
+    } else {
+      $('.emblem').removeClass('is-tiny');
+    }
+  }
+}

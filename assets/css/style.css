@@ -425,16 +425,18 @@ button {
 
 .footer {
   overflow: hidden;
-  padding: 18rem 0 1rem;
+  margin-top: 18rem;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 1024px) {
   .footer {
-    padding: 30rem 0 0.52083vw;
+    margin-top: 30rem;
+    padding-bottom: 0.52083vw;
   }
 }
 @media screen and (min-width: 1240px) {
   .footer {
-    padding-top: 15.625vw;
+    margin-top: 15.625vw;
   }
 }
 @media screen and (min-width: 1920px) {
@@ -582,6 +584,9 @@ button {
     margin: 8.2rem 1rem 0;
   }
 }
+.footer .footer__logo {
+  opacity: 0;
+}
 
 .loading {
   position: fixed;
@@ -626,9 +631,23 @@ button {
   }
 }
 .loading__content:nth-child(1) {
+  order: 0;
   justify-content: center;
   text-align: center;
 }
+.loading__content:nth-child(2) {
+  order: 2;
+}
+.loading .emblem {
+  order: 1;
+  position: static;
+  transform: none;
+  color: #000;
+}
+.loading .emblem__logo {
+  transform: scale(1);
+}
+
 .marquee {
   display: flex;
   width: 100%;
@@ -839,52 +858,50 @@ button {
 }
 .headline__row--flex {
   display: flex;
+  justify-content: space-between;
 }
-.headline__row--flex .headline__word:nth-child(2) {
-  margin-left: auto;
+@media screen and (min-width: 1024px) {
+  .headline__row--flex {
+    flex-direction: column;
+  }
 }
 @media screen and (min-width: 1024px) {
   .headline__row--flex .headline__word:nth-child(2) {
-    margin-top: 20.5135vh;
+    align-self: flex-end;
   }
 }
 
-.section-about__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 3rem;
-  margin: 0 auto;
+.section-about__content {
   padding: 0 3rem;
-  width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .section-about__grid {
-    gap: 0 6rem;
+  .section-about__content {
     padding: 0 6rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  .section-about__grid {
+  .section-about__content {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0 5.20833vw;
     padding: 0 7.8125vw;
   }
 }
 @media screen and (min-width: 1240px) {
-  .section-about__grid {
+  .section-about__content {
     gap: 0 7.8125vw;
     padding: 0 7.8125vw;
   }
 }
-.section-about__content {
-  grid-column: 1/span 2;
+.section-about__textbox {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media screen and (min-width: 1024px) {
-  .section-about__content {
-    grid-column: 3/span 1;
+  .section-about__textbox {
+    grid-column-start: 3;
+    grid-column-end: 4;
     align-items: flex-start;
   }
 }
@@ -1060,6 +1077,7 @@ button {
   position: absolute;
   bottom: 0;
   transform: scale(0);
+  transform-origin: 0% 100%;
 }
 .section-service__list--right .section-service__item {
   position: sticky;
@@ -1164,33 +1182,33 @@ button {
   height: 100%;
 }
 
-.floating {
+.emblem {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 50;
+  z-index: 9;
   width: 100%;
   color: #fff;
 }
-.floating.is-blended {
+.emblem.is-blended {
   mix-blend-mode: difference;
 }
-.is-nav-open .floating {
+.is-nav-open .emblem {
   opacity: 0;
 }
-.floating__link {
+.emblem__link {
   display: block;
 }
-.floating__logo {
+.emblem__logo {
   position: absolute;
 }
-.floating__logo svg {
+.emblem__logo svg {
   width: 100%;
   height: 100%;
   fill: currentColor;
 }
-.floating__logo--left {
+.emblem__logo--left {
   top: calc(50% - 4.53333vw);
   left: 1rem;
   width: 51.73333vw;
@@ -1199,7 +1217,7 @@ button {
   transform: scale(0.4072, 0.4072);
 }
 @media screen and (min-width: 1024px) {
-  .floating__logo--left {
+  .emblem__logo--left {
     top: calc(50% - 4.6875vw);
     left: 0.52083vw;
     width: 54.01042vw;
@@ -1208,14 +1226,37 @@ button {
   }
 }
 @media screen and (min-width: 1920px) {
-  .floating__logo--left {
+  .emblem__logo--left {
     left: 1rem;
   }
 }
-.is-load .floating__logo--left {
-  transform: none;
+@media screen and (max-width: 1023px) {
+  .emblem__logo--left path {
+    transition: transform 0.3s cubic-bezier(0.32, 0.94, 0.6, 1);
+  }
+  .emblem__logo--left path:nth-child(2) {
+    transition-delay: 0.18s;
+  }
+  .emblem__logo--left path:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+  .emblem__logo--left path:nth-child(4) {
+    transition-delay: 0.12s;
+  }
+  .emblem__logo--left path:nth-child(5) {
+    transition-delay: 0.09s;
+  }
+  .emblem__logo--left path:nth-child(6) {
+    transition-delay: 0.06s;
+  }
+  .emblem__logo--left path:nth-child(7) {
+    transition-delay: 0.03s;
+  }
+  .is-tiny .emblem__logo--left path:nth-child(n+2) {
+    transform: translateY(110%);
+  }
 }
-.floating__logo--center {
+.emblem__logo--center {
   top: calc(50% - 4.53333vw);
   left: calc(60% - 3.86667vw);
   width: 7.73333vw;
@@ -1224,18 +1265,15 @@ button {
   transform-origin: 0% 50%;
 }
 @media screen and (min-width: 1024px) {
-  .floating__logo--center {
+  .emblem__logo--center {
     top: calc(50% - 4.79167vw);
     left: calc(60% - 4.03646vw);
     width: 8.07292vw;
     height: 9.58333vw;
     transform: translate(-163px, 0px) scale(0.1161, 0.1161);
   }
-  .is-load .floating__logo--center {
-    transform: none;
-  }
 }
-.floating__logo--right {
+.emblem__logo--right {
   top: calc(50% - 4.53333vw);
   right: 1rem;
   width: 31.46667vw;
@@ -1244,20 +1282,47 @@ button {
   transform-origin: 100% 50%;
 }
 @media screen and (min-width: 1024px) {
-  .floating__logo--right {
+  .emblem__logo--right {
     top: calc(50% - 4.79167vw);
     right: 0.52083vw;
     width: 33.07292vw;
     height: 9.58333vw;
     transform: scale(0.1213, 0.1213);
   }
-  .is-load .floating__logo--right {
-    transform: none;
-  }
 }
 @media screen and (min-width: 1920px) {
-  .floating__logo--right {
+  .emblem__logo--right {
     right: 1rem;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .emblem__logo--right path {
+    transition: transform 0.6s cubic-bezier(0.32, 0.94, 0.6, 1);
+  }
+  .emblem__logo--right path:nth-child(1) {
+    transition-delay: 0s;
+  }
+  .emblem__logo--right path:nth-child(2) {
+    transition-delay: 0.06s;
+  }
+  .emblem__logo--right path:nth-child(3) {
+    transition-delay: 0.09s;
+  }
+  .emblem__logo--right path:nth-child(4) {
+    transition-delay: 0.12s;
+  }
+  .emblem__logo--right path:nth-child(5) {
+    transition-delay: 0.12s;
+  }
+  .emblem__logo--right path:nth-child(6) {
+    transition-delay: 0.15s;
+  }
+  .is-tiny .emblem__logo--right path:nth-child(1) {
+    transform: translateX(73.4%);
+    transition-delay: 0.24s;
+  }
+  .is-tiny .emblem__logo--right path:nth-child(n+2) {
+    transform: translateY(110%);
   }
 }
 

@@ -1,11 +1,13 @@
 .footer {
   overflow: hidden;
-  padding: 18rem 0 1rem;
+  margin-top: 18rem;
+  padding-bottom: 1rem;
   @include desktop {
-    padding: 30rem 0 .52083vw;
+    margin-top: 30rem;
+    padding-bottom: .52083vw;
   }
   @include desktop-medium {
-    padding-top: 15.625vw;
+    margin-top: 15.625vw;
   }
   @include desktop-large {
     padding-bottom: 1rem;
@@ -108,6 +110,9 @@
     }
     @include desktop-large {
       margin: 8.2rem 1rem 0;
+    }
+    .footer & {
+      opacity: 0;
     }
   }
 }
