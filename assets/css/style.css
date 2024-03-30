@@ -601,6 +601,7 @@ button {
   height: 100svh;
   padding: 1rem;
   background-color: #fff;
+  pointer-events: none;
 }
 @media screen and (min-width: 1024px) {
   .loading {
@@ -644,10 +645,9 @@ button {
   transform: none;
   color: #000;
 }
-.loading .emblem__logo {
-  transform: scale(1);
+.loading .emblem.white {
+  color: #fff;
 }
-
 .marquee {
   display: flex;
   width: 100%;
@@ -700,7 +700,7 @@ button {
   overflow: hidden;
 }
 .section-home__list {
-  z-index: 1;
+  z-index: 9;
 }
 .section-home__list--top {
   position: absolute;
@@ -721,6 +721,9 @@ button {
     left: 0.4rem;
   }
 }
+.section-home__list--top li {
+  transform-origin: top left;
+}
 .section-home__list--bottom {
   position: relative;
   display: flex;
@@ -739,6 +742,9 @@ button {
     margin-top: calc(50dvh + 1.04167vw);
     padding-right: 0.72917vw;
   }
+}
+.section-home__list--bottom li {
+  transform-origin: top right;
 }
 .section-home__item {
   display: flex;
@@ -795,6 +801,7 @@ button {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 7;
 }
 .section-home__video {
   position: absolute;
@@ -805,12 +812,30 @@ button {
   -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
   will-change: transform;
 }
+.section-home__video:nth-child(1) {
+  z-index: 6;
+}
+.section-home__video:nth-child(2) {
+  z-index: 5;
+}
+.section-home__video:nth-child(3) {
+  z-index: 4;
+}
+.section-home__video:nth-child(4) {
+  z-index: 3;
+}
+.section-home__video:nth-child(5) {
+  z-index: 2;
+}
+.section-home__video:nth-child(6) {
+  z-index: 1;
+}
 .section-home__video video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
   transition: opacity 0.4s;
@@ -948,13 +973,13 @@ button {
   position: relative;
   min-height: 200vw;
   margin-bottom: 26rem;
-  padding: 40rem 1rem 0;
+  padding: 0rem 1rem 0;
 }
 @media screen and (min-width: 1024px) {
   .section-service {
     min-height: 75vw;
     margin-bottom: 25.52083vw;
-    padding: 20.83333vw 0.52083vw 0;
+    padding: 0vw 0.52083vw 0;
   }
 }
 @media screen and (min-width: 1920px) {
@@ -964,22 +989,10 @@ button {
   }
 }
 .section-service__inner {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 120%;
+  height: 300vh;
+  border: 1px solid #000;
   pointer-events: none;
-}
-@media screen and (min-width: 768px) {
-  .section-service__inner {
-    height: 100%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .section-service__inner {
-    height: 120%;
-  }
 }
 .section-service__sticky {
   position: sticky;
@@ -1044,6 +1057,7 @@ button {
 .section-service__list--right {
   position: absolute;
   right: 1rem;
+  top: 52%;
   text-align: right;
 }
 @media screen and (min-width: 1024px) {
@@ -1055,6 +1069,9 @@ button {
   .section-service__list--right {
     right: 1rem;
   }
+}
+.section-service__list--right li {
+  transform-origin: right top;
 }
 .section-service__item {
   font-size: 3rem;
@@ -1187,8 +1204,11 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9;
+  z-index: 40;
   width: 100%;
+  color: #000;
+}
+.emblem.white {
   color: #fff;
 }
 .emblem.is-blended {
@@ -1202,6 +1222,7 @@ button {
 }
 .emblem__logo {
   position: absolute;
+  transition: transform 0.8s;
 }
 .emblem__logo svg {
   width: 100%;
@@ -1214,6 +1235,8 @@ button {
   width: 51.73333vw;
   height: 9.06667vw;
   transform-origin: 0% 50%;
+}
+.scale .emblem__logo--left {
   transform: scale(0.4072, 0.4072);
 }
 @media screen and (min-width: 1024px) {
@@ -1222,6 +1245,8 @@ button {
     left: 0.52083vw;
     width: 54.01042vw;
     height: 9.375vw;
+  }
+  .scale .emblem__logo--left {
     transform: scale(0.1215, 0.1215);
   }
 }
@@ -1261,8 +1286,10 @@ button {
   left: calc(60% - 3.86667vw);
   width: 7.73333vw;
   height: 9.06667vw;
-  transform: translate(-27.8333px, 0px) scale(0.4135, 0.4135);
   transform-origin: 0% 50%;
+}
+.scale .emblem__logo--center {
+  transform: translate(-27.8333px, 0px) scale(0.4135, 0.4135);
 }
 @media screen and (min-width: 1024px) {
   .emblem__logo--center {
@@ -1270,6 +1297,8 @@ button {
     left: calc(60% - 4.03646vw);
     width: 8.07292vw;
     height: 9.58333vw;
+  }
+  .scale .emblem__logo--center {
     transform: translate(-163px, 0px) scale(0.1161, 0.1161);
   }
 }
@@ -1278,8 +1307,10 @@ button {
   right: 1rem;
   width: 31.46667vw;
   height: 9.06667vw;
-  transform: scale(0.4068, 0.4068);
   transform-origin: 100% 50%;
+}
+.scale .emblem__logo--right {
+  transform: scale(0.4068, 0.4068);
 }
 @media screen and (min-width: 1024px) {
   .emblem__logo--right {
@@ -1287,6 +1318,8 @@ button {
     right: 0.52083vw;
     width: 33.07292vw;
     height: 9.58333vw;
+  }
+  .scale .emblem__logo--right {
     transform: scale(0.1213, 0.1213);
   }
 }
