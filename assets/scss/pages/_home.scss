@@ -433,20 +433,24 @@
 			padding: 0 7.8125vw;
 		}
 		@include desktop-medium {
-			padding: 0 7.8125vw;
+			// padding: 0 7.8125vw;
 		}
 		align-items: center;
 	}
 
 	&__video {
 		position: relative;
-		// top: 50%;
-    // transform: translateY(-50%);
-		grid-column: 1 / span 2;
+		top: 50%;
+    transform: translateY(-50%);
+		// grid-column: 1 / span 2;
 		height: 80%;
-
+		margin: 0 -1rem;
 		@include desktop {
-			grid-column: 1 / span 4;
+			// grid-column: 1 / span 4;
+			margin: 0 -.52083vw;
+		}
+		@include desktop-large {
+			margin: 0 -1rem;
 		}
 
 		video {

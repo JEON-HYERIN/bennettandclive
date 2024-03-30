@@ -112,14 +112,14 @@ videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+2)',{
   yPercent:-100
 },'a')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(1)',{
-  yPercent:-100,
+  yPercent:-110,
 },'a')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
   scale:1,
-  yPercent:-100,
+  yPercent:-110,
 },'a')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+3)',{
-  yPercent:-100,
+  yPercent:-110,
 },'a')
 
 
@@ -133,14 +133,14 @@ videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+3)',{
   yPercent:-200
 },'b')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
-  yPercent:-200,
+  yPercent:-220,
 },'b')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
   scale:1,
-  yPercent:-200,
+  yPercent:-220,
 },'b')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+4)',{
-  yPercent:-200,
+  yPercent:-220,
 },'b')
 
 videoTl.to('.section-brand__video:nth-child(3)',{
@@ -153,14 +153,14 @@ videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+4)',{
   yPercent:-300
 },'c')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
-  yPercent:-300,
+  yPercent:-330,
 },'c')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
   scale:1,
-  yPercent:-300,
+  yPercent:-330,
 },'c')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+5)',{
-  yPercent:-300,
+  yPercent:-330,
 },'c')
 
 videoTl.to('.section-brand__video:nth-child(4)',{
@@ -173,14 +173,14 @@ videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+5)',{
   yPercent:-400
 },'d')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
-  yPercent:-400,
+  yPercent:-440,
 },'d')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
   scale:1,
-  yPercent:-400,
+  yPercent:-440,
 },'d')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+6)',{
-  yPercent:-400,
+  yPercent:-440,
 },'d')
 
 videoTl.to('.section-brand__video:nth-child(5)',{
@@ -193,14 +193,14 @@ videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+6)',{
   yPercent:-500
 },'e')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
-  yPercent:-500,
+  yPercent:-550,
 },'e')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(6)',{
   scale:1,
-  yPercent:-500,
+  yPercent:-550,
 },'e')
 videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+7)',{
-  yPercent:-500,
+  yPercent:-550,
 },'e')
 
 
