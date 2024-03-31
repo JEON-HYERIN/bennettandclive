@@ -427,9 +427,7 @@
 		mix-blend-mode: difference;
 		&--left {
 			position: fixed;
-			.is-fixed & {
-				bottom: 53%;
-			}
+			bottom: 53%;
 		}
 
 		&--right {
@@ -437,7 +435,7 @@
 			right: 1rem;
 			top: 52%;
 			text-align: right;
-			.is-fixed & {
+			&.is-fixed {
 				position: fixed;
 			}
 

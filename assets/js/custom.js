@@ -441,19 +441,20 @@ videoTl = gsap.timeline({
     trigger: '.section-service',
     start: '0% 0%',
     end: '100% 100%',
-    scrub: 1,
+    scrub: 2,
     duration: .1,
+    ease: 'none',
     onEnter: function() {
-      $('.section-service').addClass('is-fixed');
-    },
-    onLeave: function() {
-      $('.section-service').removeClass('is-fixed');
-    },
-    onLeaveBack: function() {
-      $('.section-service').removeClass('is-fixed');
+      $('.section-service__list--right').addClass('is-fixed');
     },
     onEnterBack: function() {
-      $('.section-service').addClass('is-fixed');
+      // $('.section-service__list--right').addClass('is-fixed');
+    },
+      onLeave: function() {
+      // $('.section-service__list--right').removeClass('is-fixed');
+    },
+    onLeaveBack: function() {
+      $('.section-service__list--right').removeClass('is-fixed');
     },
   },
 })
@@ -697,6 +698,9 @@ videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
 videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -900
 },'j')
+videoTl.to('.section-service__list--left',{
+  y: '-52vh',
+},'k')
 
 
 
