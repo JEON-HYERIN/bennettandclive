@@ -80,6 +80,9 @@ introMotion
     opacity: 0,
     y: 10,
     stagger: .2,
+    onStart: function() {
+      $('.global-nav__menu').addClass('is-visible');
+    },
     onComplete: function() {
       $('.global-nav__link').removeAttr('style');
     }

@@ -131,7 +131,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 40;
+  z-index: 10;
   width: 100%;
 }
 .header__logo.white {
@@ -290,13 +290,16 @@ button {
   position: fixed;
   top: 1rem;
   right: 1rem;
+  z-index: 1;
   display: flex;
   align-items: center;
-  z-index: 60;
   width: 3.6rem;
   height: 2.9rem;
   color: #fff;
   mix-blend-mode: difference;
+}
+.is-nav-open .global-nav__menu {
+  z-index: 30;
 }
 .global-nav__menu::before {
   content: "";
@@ -315,7 +318,7 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 20;
   color: #fff;
 }
 .global-nav__panel.is-blended {
@@ -758,7 +761,7 @@ footer .footer__logo {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 40;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
