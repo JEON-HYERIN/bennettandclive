@@ -75,7 +75,7 @@
   }
   @keyframes blink {
     50% {
-        opacity: 0
+        opacity: 0;
     }
   }
   &__link {
@@ -100,7 +100,6 @@
   &__logo {
     display: flex;
     margin: 3.2rem 1rem 0;
-    // opacity: 0;
     @include not-mobile {
       margin-left: 1.5625vw;
       margin-right: 1.5625vw;
