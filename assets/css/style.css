@@ -132,7 +132,7 @@ button {
   right: 1rem;
   display: flex;
   align-items: center;
-  z-index: 20;
+  z-index: 60;
   width: 3.6rem;
   height: 2.9rem;
   color: #fff;
@@ -155,7 +155,7 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 50;
   color: #fff;
 }
 .global-nav__panel.is-blended {
@@ -588,7 +588,7 @@ button {
     margin: 8.2rem 1rem 0;
   }
 }
-.footer .footer__logo {
+footer .footer__logo {
   opacity: 0;
 }
 
@@ -979,8 +979,12 @@ button {
 .section-service {
   position: relative;
   min-height: 200vw;
-  margin-bottom: 26rem;
   padding: 0rem 1rem 0;
+}
+@media screen and (min-width: 768px) {
+  .section-service {
+    margin-bottom: 26rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .section-service {
@@ -1070,7 +1074,7 @@ button {
   }
 }
 .section-service__item {
-  font-size: 3rem;
+  font-size: 3.6rem;
   letter-spacing: -0.05em;
   line-height: 0.9;
   color: #fff;
@@ -1274,7 +1278,7 @@ button {
   .logo__icon--left path:nth-child(7) {
     transition-delay: 0.03s;
   }
-  .is-tiny .logo__icon--left path:nth-child(n+2) {
+  .abbreviation .logo__icon--left path:nth-child(n+2) {
     transform: translateY(110%);
   }
 }
@@ -1286,7 +1290,7 @@ button {
   transform-origin: 0% 50%;
 }
 .scale .logo__icon--center {
-  transform: translate(-78%, 0px) scale(0.4135, 0.4135);
+  transform: translate(-98%, 0px) scale(0.4135, 0.4135);
 }
 @media screen and (min-width: 1024px) {
   .logo__icon--center {
@@ -1347,11 +1351,11 @@ button {
   .logo__icon--right path:nth-child(6) {
     transition-delay: 0.15s;
   }
-  .is-tiny .logo__icon--right path:nth-child(1) {
+  .abbreviation .logo__icon--right path:nth-child(1) {
     transform: translateX(73.4%);
     transition-delay: 0.24s;
   }
-  .is-tiny .logo__icon--right path:nth-child(n+2) {
+  .abbreviation .logo__icon--right path:nth-child(n+2) {
     transform: translateY(110%);
   }
 }

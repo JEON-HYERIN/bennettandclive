@@ -32,14 +32,13 @@ const introMotion = gsap.timeline({
     const bodyEl = document.querySelector('body');
     const videolEls = document.querySelectorAll('video');
     const loading = document.querySelector('.loading');
-    const brandItem = document.querySelector('.section-brand__list--left .section-brand__item:nth-child(1)');
+    
     bodyEl.removeAttribute('style');
     videolEls.forEach(function (video, index) {
       video.play();
       lenis.start();
     })
     loading.style.display = 'none';
-    brandItem.style.transformOrigin = '';
   }
 });
 introMotion
@@ -62,6 +61,7 @@ introMotion
     },
     onComplete:function(){
       // $('.header__logo').addClass('white');
+      $('.marquee__texts').css('animation-play-state', 'paused');
     }
   }, "a+=0.8")
   .set('.header__logo', {
@@ -78,12 +78,20 @@ introMotion
     opacity: 0,
     y: 10,
     stagger: .2,
-    // ease: 'none'
+    // ease: 'none',
+    onComplete: function() {
+      $('.global-nav__link').removeAttr('style');
+    }
   },'c')
   .to('.section-brand__list--left .section-brand__item:nth-child(1)', {
     scale: 1,
     'transform-origin': 'bottom left',
-    duration: .8
+    duration: .8,
+    onComplete: function() {
+      const brandItem = document.querySelector('.section-brand__list--left .section-brand__item:nth-child(1)');
+
+      brandItem.style.transformOrigin = '';
+    }
   },'c')
   .to('.section-brand__list--right .section-brand__item', {
     scale: 1,
@@ -107,11 +115,14 @@ videoTl = gsap.timeline({
     // snap: {
     //   x: 60, // x snaps to the closest increment of 20 (0, 20, 40, 60, etc.)
     // },
-  }
+  },
 })
 
 videoTl.to('.section-brand__video:nth-child(1)',{
-  height:0
+  height:0,
+  onStart: function() {
+    changeAbbreviation();
+  }
 },'a')
 videoTl.to('.section-brand__list--right .section-brand__item:nth-child(1)',{
   scale:0
@@ -364,61 +375,10 @@ getRealTime();
 // })
 
 
-$('.section-partner__item').each(function(){
-  abc = gsap.timeline({
-    scrollTrigger: {
-        trigger: $(this),
-        start: 'top 50%',
-        end: 'bottom 30%',
-        scrub: 1,
-        ease: "none",
-        // markers: true
-      }
-  })
-  abc.to($(this).find('.section-partner__column[data-direction="left"]'),{x:-100},'a')
-  abc.to($(this).find('.section-partner__column[data-direction="right"]'),{x:100},'a')
-  abc.to($(this).find('.section-partner__column[data-direction="left"]'),{x:0},'b')
-  abc.to($(this).find('.section-partner__column[data-direction="right"]'),{x:0},'b')
-  
-})
 
 
-const tl2 = gsap.timeline({
-  scrollTrigger: {
-    trigger: 'footer',
-    start: '-100% 50%',
-    end: 'bottom bottom',
-    scrub: 0,
-    // duration: 4,
-    // markers: true
-  }
-});
-tl2
-.set('.logo__icon',{
-  transition: 'none'
-})
 
-  .to('.logo__icon', {
-    y: '50vh',
-    ease:"none"
-  },'a')
-  .to('.logo__icon svg', {
-    y: '-50vh',
-    ease:"none"
-  },'a')
-  // .to('.logo__icon svg', {
-  //   yPercent: -50,
-  //   ease:"none"
-  // })
-  .to('.logo__icon', {
-    scale: 1,
-    y: '90vh',
-    x: 0,
-    ease:"none",
-    onStart: function() {
-      // $('.header__logo').removeClass('scale');
-    }
-  })
+
 
 // const serviceLists = document.querySelectorAll('.section-service__item');
 // serviceLists.forEach(function(el, index) {
@@ -734,34 +694,283 @@ videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
 
 
 
-
-gsap.fromTo('.section-about__headline .headline__row--flex .headline__word:nth-child(2)', {
-  y: '45vh',
-  }, {
-    y: 0,
+let mm = gsap.matchMedia();
+mm.add("(min-width: 1024px)", () => {
+  gsap.fromTo('.section-about__headline .headline__row--flex .headline__word:nth-child(2)', {
+    y: '45vh',
+    }, {
+      y: 0,
+      scrollTrigger: {
+        trigger: '.section-about',
+        start: '-40% top',
+        end: '50% top',
+        scrub: 0,
+        // markers: true
+      }
+  });
+})
+mm.add("(min-width: 1024px)", () => {
+  $('.section-partner__item').each(function(){
+    logoTl = gsap.timeline({
+      scrollTrigger: {
+          trigger: $(this),
+          start: 'top 50%',
+          end: 'bottom 30%',
+          scrub: 1,
+          ease: "none",
+          // markers: true
+        }
+    })
+    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'),{x:-100},'a')
+    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'),{x:100},'a')
+    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'),{x:0},'b')
+    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'),{x:0},'b')
+  })
+})
+mm.add("(max-width: 767px)", () => {
+  const tl2 = gsap.timeline({
     scrollTrigger: {
-      trigger: '.section-about',
-      start: '-40% top',
-      end: '50% top',
+      trigger: 'footer',
+      start: '-150% 50%',
+      end: '30% 80%',
       scrub: 0,
+      onEnter: function() {
+        $('.header__logo').removeClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeaveBack: function() {
+        $('.header__logo').removeAttr('style');
+        $('.header__logo').addClass('scale');
+      },
+      onLeave: function() {
+        $('.header__logo').removeAttr('style');
+      }
+      // duration: 4,
       // markers: true
     }
+  });
+  tl2
+  .set('.logo__icon',{
+    transition: 'none',
+  })
+  .to('.logo__icon', {
+    y: '50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon svg', {
+    y: '-50vh',
+    ease:"none",
+  },'a')
+  .to('.logo__icon', {
+    scale: 1,
+    y: '97.5vh',
+    x: 0,
+    ease:"none",
+    onComplete: function() {
+      $('.header__logo').removeClass('abbreviation');
+    },
+    onReverseComplete: function() {
+      $('.header__logo').addClass('abbreviation');
+      $('.header__logo').removeAttr('style');
+    }
+  })
+})
+mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
+  const tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: 'footer',
+      start: '-230% 50%',
+      end: '50% 90%',
+      scrub: 0,
+      onEnter: function() {
+        $('.header__logo').removeClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeaveBack: function() {
+        $('.header__logo').addClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeave: function() {
+        $('.header__logo').removeAttr('style');
+      }
+      // duration: 4,
+      // markers: true
+    }
+  });
+  tl2
+  .set('.logo__icon',{
+    transition: 'none',
+  })
+  .to('.logo__icon', {
+    y: '50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon svg', {
+    y: '-50vh',
+    ease:"none",
+  },'a')
+  .to('.logo__icon', {
+    scale: 1,
+    y: '97.5vh',
+    x: 0,
+    ease:"none",
+    onComplete: function() {
+      $('.header__logo').removeClass('abbreviation');
+    },
+    onReverseComplete: function() {
+      $('.header__logo').addClass('abbreviation');
+      $('.header__logo').removeAttr('style');
+    }
+  })
+})
+mm.add("(min-width: 1024px) and (max-width: 1400px)", () => {
+  const tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: 'footer',
+      start: '-240% 60%',
+      end: '60% 90%',
+      scrub: 0,
+      onEnter: function() {
+        $('.header__logo').removeClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeaveBack: function() {
+        $('.header__logo').addClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeave: function() {
+        $('.header__logo').removeAttr('style');
+      }
+      // duration: 4,
+      // markers: true
+    }
+  });
+  tl2
+  .set('.logo__icon',{
+    transition: 'none'
+  })
+  .to('.logo__icon', {
+    y: '50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon svg', {
+    y: '-50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon', {
+    scale: 1,
+    y: '96vh',
+    x: 0,
+    ease:"none",
+    onReverseComplete: function() {
+      $('.header__logo').removeAttr('style');
+    }
+  })
+})
+mm.add("(min-width: 1401px) and (max-width: 1700px)", () => {
+  const tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: 'footer',
+      start: '-150% 50%',
+      end: '60% 90%',
+      scrub: 0,
+      onEnter: function() {
+        $('.header__logo').removeClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeaveBack: function() {
+        $('.header__logo').addClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeave: function() {
+        $('.header__logo').removeAttr('style');
+      }
+      // duration: 4,
+      // markers: true
+    }
+  });
+  tl2
+  .set('.logo__icon',{
+    transition: 'none'
+  })
+  .to('.logo__icon', {
+    y: '50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon svg', {
+    y: '-50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon', {
+    scale: 1,
+    y: '94vh',
+    x: 0,
+    ease:"none",
+    onReverseComplete: function() {
+      $('.header__logo').removeAttr('style');
+    }
+  })
+})
+mm.add("(min-width: 1701px)", () => {
+  const tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: 'footer',
+      start: '-100% 50%',
+      end: 'bottom bottom',
+      scrub: 0,
+      onEnter: function() {
+        $('.header__logo').removeClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeaveBack: function() {
+        $('.header__logo').addClass('scale');
+        $('.header__logo').removeAttr('style');
+      },
+      onLeave: function() {
+        $('.header__logo').removeAttr('style');
+      }
+      // duration: 4,
+      // markers: true
+    }
+  });
+  tl2
+  .set('.logo__icon',{
+    transition: 'none'
+  })
+  .to('.logo__icon', {
+    y: '50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon svg', {
+    y: '-50vh',
+    ease:"none"
+  },'a')
+  .to('.logo__icon', {
+    scale: 1,
+    y: '90vh',
+    x: 0,
+    ease:"none",
+    onReverseComplete: function() {
+      $('.header__logo').removeAttr('style');
+    }
+  })
+})
+
+
+changeAbbreviation()
+$(window).on('resize', function() {
+  changeAbbreviation();
+  $('.header__logo').removeAttr('style');
 });
 
-
-checkTiny()
-$(window).on('scroll resize', function() {
-  checkTiny();
-});
-
-function checkTiny() {
+function changeAbbreviation() {
   const scroll = $(window).scrollTop();
   
   if($(window).width() <= 1023) {
     if(scroll > 0) {
-      $('.header__logo').addClass('is-tiny');
+      $('.header__logo').addClass('abbreviation');
     } else {
-      $('.header__logo').removeClass('is-tiny');
+      $('.header__logo').removeClass('abbreviation');
     }
   }
 }

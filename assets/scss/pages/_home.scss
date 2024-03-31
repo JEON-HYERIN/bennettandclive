@@ -399,10 +399,12 @@
 .section-service {
 	position: relative;
 	min-height: 200vw;
-	margin-bottom: 26rem;
 	padding: 0rem 1rem 0;
 	// padding: 40rem 1rem 0;
-
+	
+	@include not-mobile {
+		margin-bottom: 26rem;
+	}
 	@include desktop {
 		min-height: 75vw;
 		// margin-bottom: 25.52083vw;
@@ -514,7 +516,7 @@
 	}
 
 	&__item {
-		font-size: 3rem;
+		font-size: 3.6rem;
 		letter-spacing: -.05em;
 		line-height: .9;
 		color: #fff;
@@ -735,9 +737,9 @@
 						&:nth-child(7) {
 							transition-delay: .03s;
 						}
-						.is-tiny & {
+						.abbreviation & {
 							&:nth-child(n+2) {
-								transform: translateY(110%);;
+								transform: translateY(110%);
 							}
 						}
 					}
@@ -752,7 +754,7 @@
 				transform-origin: 0% 50%;
 				.scale & {
 					// transform: translate(-27.8333px, 0px) scale(0.4135, 0.4135);
-					transform: translate(-78%, 0px) scale(0.4135, 0.4135);
+					transform: translate(-98%, 0px) scale(0.4135, 0.4135);
 				}
 				@include desktop {
 					top: calc(50% - 4.79167vw);
@@ -816,7 +818,7 @@
 						&:nth-child(6) {
 							transition-delay: .15s;
 						}
-						.is-tiny & {
+						.abbreviation & {
 							&:nth-child(1) {
 								transform: translateX(73.4%);
 								transition-delay: .24s;
