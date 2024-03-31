@@ -32,44 +32,48 @@ const introMotion = gsap.timeline({
     const bodyEl = document.querySelector('body');
     const videolEls = document.querySelectorAll('video');
     const loading = document.querySelector('.loading');
-
+    const brandItem = document.querySelector('.section-brand__list--left .section-brand__item:nth-child(1)');
     bodyEl.removeAttribute('style');
     videolEls.forEach(function (video, index) {
       video.play();
       lenis.start();
     })
     loading.style.display = 'none';
+    brandItem.style.transformOrigin = '';
   }
 });
 introMotion
-  .fromTo('.loading .marquee__text span', {
+  .fromTo('.loading .marquee__text', {
     yPercent: 110,
-    x: -40
+    x: -80,
   }, {
     yPercent: 0,
-    stargger: .3,
-    duration: 1.5
+    stargger: .2,
+    duration: 1.1,
+    delay: 0.2
   })
   .to('.loading__content:nth-child(1)', {
-    yPercent: -130, y: -20, duration: .8,
-  },'a')
+    yPercent: -130, y: -20, duration: 1,
+  },'a+=1')
   .to('.loading__content:nth-child(2)', {
-    yPercent: 130, y: 20, duration: .8,
+    yPercent: 130, y: 20, duration: 1,
     onStart:function(){
       $('.header__logo').addClass('scale');
     },
     onComplete:function(){
+      // $('.header__logo').addClass('white');
+    }
+  }, "a+=0.8")
+  .set('.header__logo', {
+    opacity: 0,
+    onComplete:function(){
       $('.header__logo').addClass('white');
     }
-  }, "a")
+  }, "a1",)
   .to('.loading', {
     'background-color':'transparent',
-  }, "a+=0.4")
-
-  .to('.overlay', {
-    delay:0.4,
-    opacity: 0,
-  },'b')
+  }, "a1")
+  .set('.header__logo', {opacity: 1},'a1')
   .from('.global-nav__link', {
     opacity: 0,
     y: 10,
@@ -78,6 +82,7 @@ introMotion
   },'c')
   .to('.section-brand__list--left .section-brand__item:nth-child(1)', {
     scale: 1,
+    'transform-origin': 'bottom left',
     duration: .8
   },'c')
   .to('.section-brand__list--right .section-brand__item', {
@@ -85,7 +90,10 @@ introMotion
     duration: .8,
     stagger: .2,
   },'c')
-
+  .to('.overlay', {
+    delay: 1,
+    opacity: 0,
+  },'c')
 
 
 let SECTIONS = gsap.utils.toArray(".section-brand");
