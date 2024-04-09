@@ -78,13 +78,13 @@
 
     .footer__list--office & {
       display: flex;
+      column-gap: 5px;
       white-space: nowrap;
     }
   }
 
   @at-root .clock {
     display: flex;
-    margin-left: 5px;
 
     &__colon {
       animation: blink 1s step-start infinite;

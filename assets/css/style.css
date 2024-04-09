@@ -698,11 +698,12 @@ button {
 }
 .footer__list--office .footer__item {
   display: flex;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
   white-space: nowrap;
 }
 .clock {
   display: flex;
-  margin-left: 5px;
 }
 .clock__colon {
   animation: blink 1s step-start infinite;

@@ -347,7 +347,13 @@ videoTl = gsap.timeline({
     onLeaveBack: function() {
       $('.section-service__list--right').removeClass('is-fixed');
     },
+    onEnterBack: function() {
+      $('.section-service__list--right').addClass('is-fixed');
+    },
   },
+  onComplete: function() {
+    $('.section-service__list--right').removeClass('is-fixed');
+  }
 })
 
 videoTl.to('.section-service__list--right .section-service__item:nth-child(1)',{
