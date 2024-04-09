@@ -293,45 +293,43 @@ function openNav() {
 }
 
 // 지역별 시간 구하기
-const getRealTime = () => {
-  let currentHour = 0;
-  let currentMinute = 0;
-  const clocks = document.querySelectorAll('.clock');
-
-  function getTime(diff) {
-    const date = new Date();
-    const utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000);
-    const time = diff * 60 * 60 * 1000;
-    const current = new Date(utc + (time));
-
-    currentHour = String(current.getHours()).padStart(2, '0');
-    currentMinute = String(current.getMinutes()).padStart(2, '0');
+let currentHour = 0;
+let currentMinute = 0;
+const printTime = () => {
+  function getTime(offset) {
+    const current = new Date();
+    const utc = current.getTime() + (current.getTimezoneOffset() * 60 * 1000);
+    const diff = offset * 60 * 60 * 1000;
+    const currentTime = new Date(utc + (diff));
+  
+    currentHour = String(currentTime.getHours()).padStart(2, '0');
+    currentMinute = String(currentTime.getMinutes()).padStart(2, '0');
   }
-  setTimeout(() => {
-    clocks.forEach(function (clock, index) {
-      const hour = clock.querySelector('.clock__hour');
-      const minute = clock.querySelector('.clock__minute');
 
-      if (clock.dataset.zone === 'new-york') {
-        getTime(-4);
-        hour.textContent = currentHour;
-        minute.textContent = currentMinute;
-      }
-      if (clock.dataset.zone === 'los-angeles') {
-        getTime(-7);
-        hour.textContent = currentHour;
-        minute.textContent = currentMinute;
-      }
-      if (clock.dataset.zone === 'miami') {
-        getTime(-4);
-        hour.textContent = currentHour;
-        minute.textContent = currentMinute;
-      }
-    })
-    getRealTime();
-  }, 6000);
+  const clockEls = document.querySelectorAll('.clock');
+
+  clockEls.forEach(function (clockEl, index) {
+    const hour = clockEl.querySelector('.clock__hour');
+    const minute = clockEl.querySelector('.clock__minute');
+
+    if(clockEl.dataset.zone === 'new-york') {
+      getTime(-4);
+    }
+    if(clockEl.dataset.zone === 'los-angeles') {
+      getTime(-7);
+    }
+    if(clockEl.dataset.zone === 'miami') {
+      getTime(-4);
+    }
+
+    hour.textContent = currentHour;
+    minute.textContent = currentMinute;
+  })
+  setTimeout(() => {
+    printTime();
+  }, 60000);
 }
-getRealTime();
+printTime();
 
 videoTl = gsap.timeline({
   scrollTrigger: {
