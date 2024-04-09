@@ -312,7 +312,7 @@ const getRealTime = () => {
       const hour = clock.querySelector('.clock__hour');
       const minute = clock.querySelector('.clock__minute');
 
-      if (clock.dataset.zone === 'newyork') {
+      if (clock.dataset.zone === 'new-york') {
         getTime(-4);
         hour.textContent = currentHour;
         minute.textContent = currentMinute;
