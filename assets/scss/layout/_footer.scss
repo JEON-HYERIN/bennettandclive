@@ -2,36 +2,45 @@
   overflow: hidden;
   margin-top: 18rem;
   padding-bottom: 1rem;
+
   @include desktop {
     margin-top: 30rem;
     padding-bottom: .52083vw;
   }
+
   @include desktop-medium {
     margin-top: 15.625vw;
   }
+
   @include desktop-large {
     padding-bottom: 1rem;
   }
+
   &__content {
     @include grid;
+
     @include tablet {
       row-gap: 2.6rem;
     }
+
     @include desktop {
       row-gap: 1.45833vw;
     }
   }
+
   &__column {
     display: flex;
     flex-direction: column;
     grid-column-end: span 2;
     justify-content: space-between;
+
     @include not-mobile {
       grid-column-end: span 1;
       justify-content: flex-end;
       row-gap: .4em;
     }
   }
+
   &__list {
     display: flex;
     flex-direction: column;
@@ -40,46 +49,57 @@
     font-size: 1.4rem;
     letter-spacing: -.05em;
     line-height: 1.2;
+
     @include desktop {
       font-size: 1.04167vw;
       line-height: 1;
     }
+
     @include not-mobile {
       justify-content: flex-end;
       row-gap: .4em;
     }
+
     &--social {
-			row-gap: .2em;
-		}
+      row-gap: .2em;
+    }
   }
+
   &__item {
     .footer__list--contact & {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+
       @include not-mobile {
         row-gap: .4em;
       }
     }
+
     .footer__list--office & {
       display: flex;
       white-space: nowrap;
     }
   }
+
   @at-root .clock {
     display: flex;
     margin-left: 5px;
+
     &__colon {
       animation: blink 1s step-start infinite;
     }
   }
+
   @keyframes blink {
     50% {
-        opacity: 0;
+      opacity: 0;
     }
   }
+
   &__link {
     position: relative;
+
     &::before {
       content: '';
       position: absolute;
@@ -90,26 +110,32 @@
       background-color: currentColor;
       transform: scaleX(1);
       transform-origin: left;
-      transition: transform .4s cubic-bezier(.32,.94,.6,1);
+      transition: transform .4s cubic-bezier(.32, .94, .6, 1);
     }
+
     &:hover::before {
       transform: scaleX(0);
       transform-origin: right;
     }
   }
+
   &__logo {
     display: flex;
     margin: 3.2rem 1rem 0;
+
     @include not-mobile {
       margin-left: 1.5625vw;
       margin-right: 1.5625vw;
     }
+
     @include desktop {
       margin: 4.27083vw .52083vw 0;
     }
+
     @include desktop-large {
       margin: 8.2rem 1rem 0;
     }
+
     footer & {
       opacity: 0;
     }

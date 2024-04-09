@@ -5,15 +5,18 @@
   margin: 0 auto;
   padding: 0 3rem;
   width: 100%;
+
   @include not-mobile {
     gap: 0 6rem;
     padding: 0 6rem;
   }
+
   @include desktop {
     grid-template-columns: repeat(4, 1fr);
     gap: 0 5.20833vw;
     padding: 0 7.8125vw;
   }
+
   @include desktop-medium {
     gap: 0 7.8125vw;
     padding: 0 7.8125vw;

@@ -10,62 +10,72 @@
 	justify-content: space-between;
 	height: 100svh;
 	padding: 1rem;
-	background-color: #fff;
+	background-color: $color-white;
 	pointer-events: none;
+
 	@include desktop {
-		padding: .52083vw 0;	
+		padding: .52083vw 0;
 	}
+
 	@include desktop-large {
 		padding: 1rem 0;
 	}
+
 	&__content {
 		display: flex;
-    width: 100%;
+		width: 100%;
 		font-size: 6.25vw;
-    line-height: .8;
-    letter-spacing: -.05em;
+		line-height: .8;
+		letter-spacing: -.05em;
 		text-transform: uppercase;
+
 		@include not-mobile {
 			font-size: 4.16667vw;
 		}
+
 		@include desktop {
 			font-size: 2.60417vw;
 		}
+
 		&:nth-child(1) {
 			justify-content: center;
 			text-align: center;
 		}
 	}
 }
+
 .marquee {
 	display: flex;
 	width: 100%;
+
 	&__inner {
 		display: flex;
 	}
+
 	&__texts {
 		display: flex;
 		animation-name: marquee;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
 		animation-duration: 5s;
 	}
+
 	&__text {
 		column-gap: .7em;
-    display: flex;
-    padding-left: .7em;
-    white-space: nowrap;
+		display: flex;
+		padding-left: .7em;
+		white-space: nowrap;
 	}
 }
 
 @keyframes marquee {
-  0% {
-    transform: translate(-100%, 0px);
-  }
+	0% {
+		transform: translate(-100%, 0px);
+	}
 
-  100% {
-    transform: translate(-200%, 0px);
-  }
+	100% {
+		transform: translate(-200%, 0px);
+	}
 }
 
 .section-brand {
@@ -136,7 +146,7 @@
 		display: flex;
 		font-size: 6rem;
 		letter-spacing: -.07em;
-		color: #fff;
+		color: $color-white;
 		text-transform: uppercase;
 		white-space: nowrap;
 		transform: scale(0);
@@ -192,29 +202,36 @@
 			background-color: rgba(0, 0, 0, .2);
 		}
 	}
+
 	&__video {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		-webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+		-webkit-mask-image: -webkit-radial-gradient($color-white, $color-black);
 		will-change: transform;
+
 		&:nth-child(1) {
 			z-index: 5;
 		}
+
 		&:nth-child(2) {
 			z-index: 4;
 		}
+
 		&:nth-child(3) {
 			z-index: 3;
 		}
+
 		&:nth-child(4) {
 			z-index: 2;
 		}
+
 		&:nth-child(5) {
 			z-index: 1;
 		}
+
 		&:nth-child(6) {
 			z-index: 0;
 		}
@@ -229,6 +246,7 @@
 			transition: opacity .4s;
 		}
 	}
+
 	&__overlay {
 		position: absolute;
 		top: 0;
@@ -243,6 +261,7 @@
 
 .section-about {
 	margin: 1rem 0 11.7rem;
+
 	@include desktop {
 		margin: 1.04167vw 0 10.9375vw;
 	}
@@ -279,6 +298,7 @@
 				&--flex {
 					display: flex;
 					justify-content: space-between;
+
 					@include desktop {
 						flex-direction: column;
 					}
@@ -297,15 +317,18 @@
 
 	&__content {
 		padding: 0 3rem;
+
 		@include not-mobile {
 			padding: 0 6rem;
 		}
+
 		@include desktop {
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
 			gap: 0 5.20833vw;
 			padding: 0 7.8125vw;
 		}
+
 		@include desktop-medium {
 			gap: 0 7.8125vw;
 			padding: 0 7.8125vw;
@@ -348,12 +371,12 @@
 		font-size: 1.6rem;
 		line-height: 1;
 		color: currentColor;
-		border: 1px solid #000;
+		border: 1px solid $color-black;
 		border-radius: 50rem;
 
 		&:hover {
-			color: #fff;
-			background-color: #000;
+			color: $color-white;
+			background-color: $color-black;
 		}
 
 		@media screen and (min-width: 1680px) {
@@ -368,10 +391,11 @@
 	position: relative;
 	min-height: 200vw;
 	padding: 0 1rem;
-	
+
 	@include not-mobile {
 		margin-bottom: 26rem;
 	}
+
 	@include desktop {
 		min-height: 75vw;
 		padding: 0 .52083vw;
@@ -391,6 +415,7 @@
 		top: 0;
 		height: 100dvh;
 		padding: 0 3rem;
+
 		@include desktop {
 			padding: 0 7.8125vw;
 		}
@@ -400,11 +425,13 @@
 		position: relative;
 		top: 50%;
 		height: 80%;
-    transform: translateY(-50%);
+		transform: translateY(-50%);
 		margin: 0 -1rem;
+
 		@include desktop {
 			margin: 0 -.52083vw;
 		}
+
 		@include desktop-large {
 			margin: 0 -1rem;
 		}
@@ -425,6 +452,7 @@
 		flex-direction: column;
 		flex-wrap: nowrap;
 		mix-blend-mode: difference;
+
 		&--left {
 			position: fixed;
 			bottom: 53%;
@@ -435,6 +463,7 @@
 			right: 1rem;
 			top: 52%;
 			text-align: right;
+
 			&.is-fixed {
 				position: fixed;
 			}
@@ -453,7 +482,7 @@
 		font-size: 3.6rem;
 		letter-spacing: -.05em;
 		line-height: .9;
-		color: #fff;
+		color: $color-white;
 		white-space: nowrap;
 
 		@include not-mobile {
@@ -528,8 +557,10 @@
 		@include desktop-large {
 			column-gap: 1rem;
 		}
+
 		&--reverse {
 			flex-direction: column-reverse;
+
 			@include desktop {
 				flex-direction: row-reverse;
 			}
@@ -547,6 +578,7 @@
 		&--left {
 			@include desktop {
 				justify-content: flex-end;
+
 				.section-partner__item--reverse & {
 					justify-content: flex-start;
 				}
