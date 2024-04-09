@@ -861,20 +861,18 @@ footer .footer__logo {
 }
 .section-brand__list--left {
   position: absolute;
-  top: 2.13333vw;
+  top: 0;
   left: 0.4rem;
   display: flex;
   flex-direction: column;
 }
 @media screen and (min-width: 1024px) {
   .section-brand__list--left {
-    top: 0.52083vw;
     left: 0.26042vw;
   }
 }
 @media screen and (min-width: 1920px) {
   .section-brand__list--left {
-    top: 1rem;
     left: 0.4rem;
   }
 }
@@ -938,6 +936,19 @@ footer .footer__logo {
   line-height: 0.79;
   white-space: nowrap;
   transform-origin: right top;
+}
+.section-brand__list--left .section-brand__link {
+  margin-top: 2.13333vw;
+}
+@media screen and (min-width: 1024px) {
+  .section-brand__list--left .section-brand__link {
+    margin-top: 0.52083vw;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .section-brand__list--left .section-brand__link {
+    margin-top: 1rem;
+  }
 }
 .section-brand__videos {
   position: absolute;

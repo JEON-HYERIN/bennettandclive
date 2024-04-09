@@ -107,18 +107,16 @@
 
 		&--left {
 			position: absolute;
-			top: 2.13333vw;
+			top: 0;
 			left: .4rem;
 			display: flex;
 			flex-direction: column;
 
 			@include desktop {
-				top: .52083vw;
 				left: .26042vw;
 			}
 
 			@include desktop-large {
-				top: 1rem;
 				left: .4rem;
 			}
 		}
@@ -181,6 +179,20 @@
 			line-height: .79;
 			white-space: nowrap;
 			transform-origin: right top;
+		}
+	}
+
+	&__link {
+		.section-brand__list--left & {
+			margin-top: 2.13333vw;
+
+			@include desktop {
+				margin-top: .52083vw;
+			}
+
+			@include desktop-large {
+				margin-top: 1rem;
+			}
 		}
 	}
 
