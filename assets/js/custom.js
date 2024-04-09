@@ -107,118 +107,118 @@ introMotion
     opacity: 0,
   },'c')
 
-const barndSection = gsap.utils.toArray(".section-brand");
-videoTl = gsap.timeline({
+const brandSection = gsap.utils.toArray('.section-brand');
+const brandVideoTl = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-brand',
     start: '0% 0%',
     end: '100% 100%',
     scrub: 0,
-    snap: 1 / (barndSection.length -1),
+    snap: 1 / (brandSection.length -1),
   },
 })
 
-videoTl.to('.section-brand__video:nth-child(1)',{
+brandVideoTl.to('.section-brand__video:nth-child(1)',{
   height:0,
   onStart: function() {
     changeAbbreviation();
   }
 },'a')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(1)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(1)',{
   scale:0
 },'a')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+2)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+2)',{
   yPercent:-100
 },'a')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(1)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(1)',{
   yPercent:-110,
 },'a')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
   scale:1,
   yPercent:-110,
 },'a')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+3)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+3)',{
   yPercent:-110,
 },'a')
 
 
-videoTl.to('.section-brand__video:nth-child(2)',{
+brandVideoTl.to('.section-brand__video:nth-child(2)',{
   height:0
 },'b')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(2)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(2)',{
   scale:0
 },'b')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+3)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+3)',{
   yPercent:-200
 },'b')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
   yPercent:-220,
 },'b')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
   scale:1,
   yPercent:-220,
 },'b')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+4)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+4)',{
   yPercent:-220,
 },'b')
 
-videoTl.to('.section-brand__video:nth-child(3)',{
+brandVideoTl.to('.section-brand__video:nth-child(3)',{
   height:0
 },'c')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(3)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(3)',{
   scale:0
 },'c')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+4)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+4)',{
   yPercent:-300
 },'c')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
   yPercent:-330,
 },'c')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
   scale:1,
   yPercent:-330,
 },'c')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+5)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+5)',{
   yPercent:-330,
 },'c')
 
-videoTl.to('.section-brand__video:nth-child(4)',{
+brandVideoTl.to('.section-brand__video:nth-child(4)',{
   height:0
 },'d')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(4)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(4)',{
   scale:0
 },'d')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+5)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+5)',{
   yPercent:-400
 },'d')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
   yPercent:-440,
 },'d')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
   scale:1,
   yPercent:-440,
 },'d')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+6)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+6)',{
   yPercent:-440,
 },'d')
 
-videoTl.to('.section-brand__video:nth-child(5)',{
+brandVideoTl.to('.section-brand__video:nth-child(5)',{
   height:0
 },'e')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(5)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(5)',{
   scale:0
 },'e')
-videoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+6)',{
+brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+6)',{
   yPercent:-500
 },'e')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
   yPercent:-550,
 },'e')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(6)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(6)',{
   scale:1,
   yPercent:-550,
 },'e')
-videoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+7)',{
+brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+7)',{
   yPercent:-550,
 },'e')
 
@@ -331,7 +331,7 @@ const printTime = () => {
 }
 printTime();
 
-videoTl = gsap.timeline({
+const serviceVideoTl = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-service',
     start: '0% 0%',
@@ -354,246 +354,246 @@ videoTl = gsap.timeline({
   }
 })
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(1)',{
   scale:0,
 },'a')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+2)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+2)',{
   yPercent:-100
 },'a')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   scale: 1
 },'a')
 
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(2)',{
   scale:0
 },'b')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+3)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+3)',{
   yPercent:-200
 },'b')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   scale: 1
 },'b')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -100,
 },'b')
 
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(3)',{
   scale:0
 },'c')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+4)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+4)',{
   yPercent:-300
 },'c')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   scale: 1,
 },'c')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -100,
 },'c')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -200,
 },'c')
 
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(4)',{
   scale:0
 },'d')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+5)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+5)',{
   yPercent:-400
 },'d')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
   scale: 1,
 },'d')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   yPercent: -100,
 },'d')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -200,
 },'d')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -300,
 },'d')
 
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(5)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(5)',{
   scale:0
 },'e')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+6)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+6)',{
   yPercent:-500
 },'e')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
   scale: 1
 },'e')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
   yPercent: -100,
 },'e')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   yPercent: -200,
 },'e')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -300,
 },'e')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -400,
 },'e')
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(6)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(6)',{
   scale:0
 },'f')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+7)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+7)',{
   yPercent:-600
 },'f')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
   scale: 1
 },'f')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
   yPercent: -100,
 },'f')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
   yPercent: -200,
 },'f')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   yPercent: -300,
 },'f')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -400,
 },'f')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -500,
 },'f')
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(7)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(7)',{
   scale:0
 },'g')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+8)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+8)',{
   yPercent:-700
 },'g')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
   scale: 1
 },'g')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
   yPercent: -100,
 },'g')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
   yPercent: -200,
 },'g')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
   yPercent: -300,
 },'g')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   yPercent: -400,
 },'g')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -500,
 },'g')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -600,
 },'g')
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(8)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(8)',{
   scale:0
 },'h')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+9)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+9)',{
   yPercent:-800
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
   scale: 1
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
   yPercent: -100,
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
   yPercent: -200,
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
   yPercent: -300,
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
   yPercent: -400,
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   yPercent: -500,
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -600,
 },'h')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -700,
 },'h')
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(9)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(9)',{
   scale:0
 },'i')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+10)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+10)',{
   yPercent:-900
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(9)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(9)',{
   scale: 1
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
   yPercent: -100,
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
   yPercent: -200,
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
   yPercent: -300,
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
   yPercent: -400,
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
   yPercent: -500,
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   yPercent: -600,
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -700,
 },'i')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -800,
 },'i')
 
-videoTl.to('.section-service__list--right .section-service__item:nth-child(10)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(10)',{
   scale:0
 },'j')
-videoTl.to('.section-service__list--right .section-service__item:nth-child(n+11)',{
+serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+11)',{
   yPercent:-1000
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(10)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(10)',{
   scale: 1
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(9)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(9)',{
   yPercent: -100,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
   yPercent: -200,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
   yPercent: -300,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
   yPercent: -400,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
   yPercent: -500,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
   yPercent: -600,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
   yPercent: -700,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
   yPercent: -800,
 },'j')
-videoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
+serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
   yPercent: -900
 },'j')
 
-videoTl.to('.section-service__list--left',{
+serviceVideoTl.to('.section-service__list--left',{
   y: '-52vh',
 },'k')
 
