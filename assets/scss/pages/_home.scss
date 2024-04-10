@@ -144,14 +144,17 @@
 		}
 
 		.section-brand__list--left & {
+			padding-top: 2.13333vw;
 			line-height: .85;
 			transform-origin: left top;
 
 			@include desktop {
+				padding-top: .52083vw;
 				line-height: .77;
 			}
 
 			@include desktop-large {
+				padding-top: 1rem;
 				line-height: .73;
 			}
 		}
@@ -159,19 +162,6 @@
 		.section-brand__list--right & {
 			line-height: .79;
 			transform-origin: right top;
-		}
-	}
-
-	&__link {
-		display: block;
-		margin-top: 2.13333vw;
-
-		@include desktop {
-			margin-top: .52083vw;
-		}
-
-		@include desktop-large {
-			margin-top: 1rem;
 		}
 	}
 

@@ -903,36 +903,25 @@ footer .footer__logo {
   }
 }
 .section-brand__list--left .section-brand__item {
+  padding-top: 2.13333vw;
   line-height: 0.85;
   transform-origin: left top;
 }
 @media screen and (min-width: 1024px) {
   .section-brand__list--left .section-brand__item {
+    padding-top: 0.52083vw;
     line-height: 0.77;
   }
 }
 @media screen and (min-width: 1920px) {
   .section-brand__list--left .section-brand__item {
+    padding-top: 1rem;
     line-height: 0.73;
   }
 }
 .section-brand__list--right .section-brand__item {
   line-height: 0.79;
   transform-origin: right top;
-}
-.section-brand__link {
-  display: block;
-  margin-top: 2.13333vw;
-}
-@media screen and (min-width: 1024px) {
-  .section-brand__link {
-    margin-top: 0.52083vw;
-  }
-}
-@media screen and (min-width: 1920px) {
-  .section-brand__link {
-    margin-top: 1rem;
-  }
 }
 .section-brand__videos {
   position: absolute;
