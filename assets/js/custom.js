@@ -116,116 +116,55 @@ const brandVideoTl = gsap.timeline({
     scrub: 0,
     snap: {
       snapTo: 'labels', // 타임라인에서 가장 가까운 라벨에 스냅
-      duration: {min: 0.2, max: 1}, // 최소 0.2 최대 3초 동안
-      delay: 0.1, // 스냅을 하기 전 0.2초동안 지연
-      // ease: 'power1.inOut' // 변화속도
+      duration: {min: 0.2, max: 1}, // 최소 0.2 최대 1초 동안
+      delay: 0.1, // 스냅을 하기 전 0.1초 동안 지연
+      // ease: 'power1.inOut' // 변화 속도
     }
   },
 })
 
-brandVideoTl.to('.section-brand__video:nth-child(1)',{
-  height:0,
-  onStart: function() {
-    changeAbbreviation();
+const itemEls = document.querySelectorAll('.section-brand__video');
+  
+itemEls.forEach(function(itemEl, index) {
+  const lastIndex = itemEls.length - 1;
+
+  if(index !== lastIndex) {
+    brandVideoTl.to(itemEl, {
+      height: 0,
+      onStart: function() {
+        if(index === 0) {
+          changeAbbreviation();
+        }
+      },
+      onReverseComplete: function() {
+        if(index === 0) {
+          changeAbbreviation();
+        }
+      }
+    }, 
+    `a${index}`)
   }
-},'a')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(1)',{
-  scale:0
-},'a')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+2)',{
-  yPercent:-100
-},'a')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(1)',{
-  yPercent:-100,
-},'a')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
-  scale:1,
-  yPercent:-100,
-},'a')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+3)',{
-  yPercent:-100,
-},'a')
+});
 
-
-brandVideoTl.to('.section-brand__video:nth-child(2)',{
-  height:0
-},'b')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(2)',{
-  scale:0
-},'b')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+3)',{
-  yPercent:-200
-},'b')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(2)',{
-  yPercent:-200,
-},'b')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
-  scale:1,
-  yPercent:-200,
-},'b')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+4)',{
-  yPercent:-200,
-},'b')
-
-brandVideoTl.to('.section-brand__video:nth-child(3)',{
-  height:0
-},'c')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(3)',{
-  scale:0
-},'c')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+4)',{
-  yPercent:-300
-},'c')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(3)',{
-  yPercent:-300,
-},'c')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
-  scale:1,
-  yPercent:-300,
-},'c')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+5)',{
-  yPercent:-300,
-},'c')
-
-brandVideoTl.to('.section-brand__video:nth-child(4)',{
-  height:0
-},'d')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(4)',{
-  scale:0
-},'d')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+5)',{
-  yPercent:-400
-},'d')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(4)',{
-  yPercent:-400,
-},'d')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
-  scale:1,
-  yPercent:-400,
-},'d')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+6)',{
-  yPercent:-400,
-},'d')
-
-brandVideoTl.to('.section-brand__video:nth-child(5)',{
-  height:0
-},'e')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(5)',{
-  scale:0
-},'e')
-brandVideoTl.to('.section-brand__list--right .section-brand__item:nth-child(n+6)',{
-  yPercent:-500
-},'e')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(5)',{
-  yPercent:-500,
-},'e')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(6)',{
-  scale:1,
-  yPercent:-500,
-},'e')
-brandVideoTl.to('.section-brand__list--left .section-brand__item:nth-child(n+7)',{
-  yPercent:-500,
-},'e')
+for(let i = 1; i < $('.section-brand__list--left .section-brand__item').length; i++) {
+  brandVideoTl.to(`.section-brand__list--left .section-brand__item:nth-child(${i})`, {
+    yPercent: `-${i}00`,
+  }, `a${i - 1}`)
+  brandVideoTl.to(`.section-brand__list--left .section-brand__item:nth-child(${i + 1})`, {
+    scale: 1
+  }, `a${i - 1}`)
+  brandVideoTl.to(`.section-brand__list--left .section-brand__item:nth-child(n+${i + 1})`, {
+    yPercent:`-${i}00`,
+  }, `a${i - 1}`)
+}
+for(let i = 1; i <= $('.section-brand__list--right .section-brand__item').length; i++) {
+  brandVideoTl.to(`.section-brand__list--right .section-brand__item:nth-child(${i})`, {
+    scale: 0,
+  }, `a${i - 1}`)
+  brandVideoTl.to(`.section-brand__list--right .section-brand__item:nth-child(n+${i + 1})`, {
+    yPercent:`-${i}00`,
+  }, `a${i - 1}`)
+}
 
 // is-blended class toggle
 blendedMode();
