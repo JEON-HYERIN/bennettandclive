@@ -846,7 +846,7 @@ footer .footer__logo {
   overflow: hidden;
 }
 .section-brand__list {
-  z-index: 9;
+  z-index: 8;
 }
 .section-brand__list--left {
   position: absolute;
