@@ -128,7 +128,6 @@
 	}
 
 	&__item {
-		display: flex;
 		font-size: 6rem;
 		letter-spacing: -.07em;
 		color: $color-white;
@@ -142,11 +141,6 @@
 
 		@include desktop {
 			font-size: 10.41667vw;
-		}
-
-		&:not(:first-child) {
-			top: 0;
-			left: 0;
 		}
 
 		.section-brand__list--left & {
@@ -164,22 +158,20 @@
 
 		.section-brand__list--right & {
 			line-height: .79;
-			white-space: nowrap;
 			transform-origin: right top;
 		}
 	}
 
 	&__link {
-		.section-brand__list--left & {
-			margin-top: 2.13333vw;
+		display: block;
+		margin-top: 2.13333vw;
 
-			@include desktop {
-				margin-top: .52083vw;
-			}
+		@include desktop {
+			margin-top: .52083vw;
+		}
 
-			@include desktop-large {
-				margin-top: 1rem;
-			}
+		@include desktop-large {
+			margin-top: 1rem;
 		}
 	}
 

@@ -885,7 +885,6 @@ footer .footer__logo {
   }
 }
 .section-brand__item {
-  display: flex;
   font-size: 6rem;
   letter-spacing: -0.07em;
   color: #fff;
@@ -903,10 +902,6 @@ footer .footer__logo {
     font-size: 10.41667vw;
   }
 }
-.section-brand__item:not(:first-child) {
-  top: 0;
-  left: 0;
-}
 .section-brand__list--left .section-brand__item {
   line-height: 0.85;
   transform-origin: left top;
@@ -923,19 +918,19 @@ footer .footer__logo {
 }
 .section-brand__list--right .section-brand__item {
   line-height: 0.79;
-  white-space: nowrap;
   transform-origin: right top;
 }
-.section-brand__list--left .section-brand__link {
+.section-brand__link {
+  display: block;
   margin-top: 2.13333vw;
 }
 @media screen and (min-width: 1024px) {
-  .section-brand__list--left .section-brand__link {
+  .section-brand__link {
     margin-top: 0.52083vw;
   }
 }
 @media screen and (min-width: 1920px) {
-  .section-brand__list--left .section-brand__link {
+  .section-brand__link {
     margin-top: 1rem;
   }
 }
