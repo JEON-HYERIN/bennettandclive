@@ -18,7 +18,7 @@ if (history.scrollRestoration) {
 }
 
 const introMotion = gsap.timeline({
-  onStart: function () {
+  onStart: function() {
     const bodyEl = document.querySelector('body');
     const videolEls = document.querySelectorAll('video');
 
@@ -28,7 +28,7 @@ const introMotion = gsap.timeline({
       video.pause();
     })
   },
-  onComplete: function () {
+  onComplete: function() {
     const bodyEl = document.querySelector('body');
     const videolEls = document.querySelectorAll('video');
     const loading = document.querySelector('.loading');
@@ -42,39 +42,28 @@ const introMotion = gsap.timeline({
   }
 });
 introMotion
-  .fromTo('.loading .marquee__text', {
-    yPercent: 110,
-    x: -80,
-  }, {
-    yPercent: 0,
-    stargger: .2,
-    duration: 1.1,
-    delay: 0.2
-  })
-
-  .to('.loading__content:nth-child(1)', {
-    yPercent: -130, y: -20, duration: 1,
-  },'a+=1')
+  .fromTo('.loading .marquee__text', {yPercent: 110, x: -80,}, {yPercent: 0, stargger: .2, duration: 1.1, delay: 0.2})
+  .to('.loading__content:nth-child(1)', {yPercent: -130, y: -20, duration: 1}, 'a+=1')
   .to('.loading__content:nth-child(2)', {
-    yPercent: 130, y: 20, duration: 1,
-    onUpdate:function(){
+    yPercent: 130,
+    y: 20,
+    duration: 1,
+    onUpdate:function() {
       $('.header__logo').addClass('scale');
     },
-    onComplete:function(){
+    onComplete:function() {
       $('.marquee__texts').css('animation-play-state', 'paused');
     }
   }, 'a+=0.8')
 
   .set('.header__logo', {
     opacity: 0,
-    onComplete:function(){
+    onComplete:function() {
       $('.header__logo').addClass('white');
     }
-  }, 'b',)
-  .to('.loading', {
-    'background-color':'transparent',
   }, 'b')
-  .set('.header__logo', {opacity: 1},'b')
+  .to('.loading', {'background-color': 'transparent'}, 'b')
+  .set('.header__logo', {opacity: 1}, 'b')
 
   .from('.global-nav__link', {
     opacity: 0,
@@ -86,7 +75,7 @@ introMotion
     onComplete: function() {
       $('.global-nav__link').removeAttr('style');
     }
-  },'c')
+  }, 'c')
   .to('.section-brand__list--left .section-brand__item:nth-child(1)', {
     scale: 1,
     'transform-origin': 'bottom left',
@@ -97,17 +86,9 @@ introMotion
       brandItem.style.transformOrigin = '';
     }
   },'c')
-  .to('.section-brand__list--right .section-brand__item', {
-    scale: 1,
-    duration: .8,
-    stagger: .2,
-  },'c')
-  .to('.section-brand__overlay', {
-    delay: 1,
-    opacity: 0,
-  },'c')
+  .to('.section-brand__list--right .section-brand__item', {scale: 1, duration: .8, stagger: .2,}, 'c')
+  .to('.section-brand__overlay', {delay: 1, opacity: 0}, 'c')
 
-const brandSection = gsap.utils.toArray('.section-brand');
 const brandVideoTl = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-brand',
@@ -115,10 +96,9 @@ const brandVideoTl = gsap.timeline({
     end: '100% 100%',
     scrub: 0,
     snap: {
-      snapTo: 'labels', // 타임라인에서 가장 가까운 라벨에 스냅
-      duration: {min: 0.2, max: 1}, // 최소 0.2 최대 1초 동안
-      delay: 0.1, // 스냅을 하기 전 0.1초 동안 지연
-      // ease: 'power1.inOut' // 변화 속도
+      snapTo: 'labels',
+      duration: {min: 0.2, max: 1},
+      delay: 0.1
     }
   },
 })
@@ -147,21 +127,23 @@ itemEls.forEach(function(itemEl, index) {
 });
 
 for(let i = 1; i < $('.section-brand__list--left .section-brand__item').length; i++) {
-  brandVideoTl.to(`.section-brand__list--left .section-brand__item:nth-child(${i})`, {
+  brandVideoTl
+  .to(`.section-brand__list--left .section-brand__item:nth-child(${i})`, {
     yPercent: `-${i}00`,
   }, `a${i - 1}`)
-  brandVideoTl.to(`.section-brand__list--left .section-brand__item:nth-child(${i + 1})`, {
+  .to(`.section-brand__list--left .section-brand__item:nth-child(${i + 1})`, {
     scale: 1
   }, `a${i - 1}`)
-  brandVideoTl.to(`.section-brand__list--left .section-brand__item:nth-child(n+${i + 1})`, {
+  .to(`.section-brand__list--left .section-brand__item:nth-child(n+${i + 1})`, {
     yPercent:`-${i}00`,
   }, `a${i - 1}`)
 }
 for(let i = 1; i <= $('.section-brand__list--right .section-brand__item').length; i++) {
-  brandVideoTl.to(`.section-brand__list--right .section-brand__item:nth-child(${i})`, {
+  brandVideoTl
+  .to(`.section-brand__list--right .section-brand__item:nth-child(${i})`, {
     scale: 0,
   }, `a${i - 1}`)
-  brandVideoTl.to(`.section-brand__list--right .section-brand__item:nth-child(n+${i + 1})`, {
+  .to(`.section-brand__list--right .section-brand__item:nth-child(n+${i + 1})`, {
     yPercent:`-${i}00`,
   }, `a${i - 1}`)
 }
@@ -186,20 +168,20 @@ ScrollTrigger.create({
   end: 'bottom center',
   scrub: 0,
   // markers: true,
-  onEnter: function () {
+  onEnter: function() {
     $('.header__logo').removeClass('is-blended');
   },
-  onLeaveBack: function () {
+  onLeaveBack: function() {
     $('.header__logo').removeClass('is-blended');
   },
-  onLeave: function () {
+  onLeave: function() {
     $('.header__logo').addClass('is-blended');
   }
 })
 
 // navigation open
 $('.global-nav__menu').on('click', openNav);
-window.addEventListener('resize', function () {
+window.addEventListener('resize', function() {
   const navMenuEl = document.querySelector('.global-nav__menu');
   const bodyEl = document.querySelector('body');
   const CLASSNAME = 'is-nav-open';
@@ -564,14 +546,14 @@ mm.add("(min-width: 1024px)", () => {
           start: 'top 50%',
           end: 'bottom 30%',
           scrub: 1,
-          ease: "none",
+          ease:  'none',
           // markers: true
         }
     })
-    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'),{x:-100},'a')
-    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'),{x:100},'a')
-    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'),{x:0},'b')
-    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'),{x:0},'b')
+    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'), {x: -100}, 'a')
+    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'), {x: 100}, 'a')
+    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'), {x: 0}, 'b')
+    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'), {x: 0}, 'b')
   })
 })
 mm.add("(max-width: 767px)", () => {
@@ -596,17 +578,17 @@ mm.add("(max-width: 767px)", () => {
   })
   .to('.logo__icon', {
     y: '50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon svg', {
     y: '-50vh',
-    ease:"none",
+    ease: 'none',
   },'a')
   .to('.logo__icon', {
     scale: 1,
     y: '97.5vh',
     x: 0,
-    ease:"none",
+    ease: 'none',
     onComplete: function() {
       $('.header__logo').removeClass('abbreviation');
     },
@@ -638,17 +620,17 @@ mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
   })
   .to('.logo__icon', {
     y: '50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon svg', {
     y: '-50vh',
-    ease:"none",
+    ease: 'none',
   },'a')
   .to('.logo__icon', {
     scale: 1,
     y: '97.5vh',
     x: 0,
-    ease:"none",
+    ease: 'none',
     onComplete: function() {
       $('.header__logo').removeClass('abbreviation');
     },
@@ -680,17 +662,17 @@ mm.add("(min-width: 1024px) and (max-width: 1400px)", () => {
   })
   .to('.logo__icon', {
     y: '50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon svg', {
     y: '-50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon', {
     scale: 1,
     y: '96vh',
     x: 0,
-    ease:"none",
+    ease: 'none',
     onReverseComplete: function() {
       $('.header__logo').removeAttr('style');
     }
@@ -718,17 +700,17 @@ mm.add("(min-width: 1401px) and (max-width: 1700px)", () => {
   })
   .to('.logo__icon', {
     y: '50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon svg', {
     y: '-50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon', {
     scale: 1,
     y: '94vh',
     x: 0,
-    ease:"none",
+    ease: 'none',
     onReverseComplete: function() {
       $('.header__logo').removeAttr('style');
     }
@@ -756,17 +738,17 @@ mm.add("(min-width: 1701px)", () => {
   })
   .to('.logo__icon', {
     y: '50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon svg', {
     y: '-50vh',
-    ease:"none"
+    ease: 'none'
   },'a')
   .to('.logo__icon', {
     scale: 1,
     y: '90vh',
     x: 0,
-    ease:"none",
+    ease: 'none',
     onReverseComplete: function() {
       $('.header__logo').removeAttr('style');
     }
