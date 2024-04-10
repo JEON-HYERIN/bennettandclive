@@ -847,13 +847,13 @@ footer .footer__logo {
 }
 .section-brand__list {
   z-index: 8;
+  display: flex;
+  flex-direction: column;
 }
 .section-brand__list--left {
   position: absolute;
   top: 0;
   left: 0.4rem;
-  display: flex;
-  flex-direction: column;
 }
 @media screen and (min-width: 1024px) {
   .section-brand__list--left {
@@ -867,8 +867,6 @@ footer .footer__logo {
 }
 .section-brand__list--right {
   position: relative;
-  display: flex;
-  flex-direction: column;
   align-items: flex-end;
   margin-top: calc(50dvh + 4vw);
   padding-right: 2.66667vw;
