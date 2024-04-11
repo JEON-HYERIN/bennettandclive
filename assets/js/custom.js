@@ -327,17 +327,16 @@ let mm = gsap.matchMedia();
 
 // about section
 mm.add("(min-width: 1024px)", () => {
-  gsap.fromTo('.section-about__headline .headline__row--flex .headline__word:nth-child(2)', {
+  gsap.from('.section-about__headline .headline__row--flex .headline__word:nth-child(2)', {
     y: '45vh',
-    }, {
-      y: 0,
-      scrollTrigger: {
-        trigger: '.section-about',
-        start: '-40% top',
-        end: '50% top',
-        scrub: 0,
-        // markers: true
-      }
+    scrollTrigger: {
+      trigger: '.section-about__headline',
+      start: '0% 75%',
+      endTrigger: '.section-about__content',
+      scrub: 1,
+      // end: '75% 20%',
+      // markers: true
+    }
   });
 })
 
