@@ -1,3 +1,4 @@
+// lenis
 const lenis = new Lenis()
 
 lenis.on('scroll', ScrollTrigger.update)
@@ -17,6 +18,7 @@ if (history.scrollRestoration) {
   history.scrollRestoration = "manual";
 }
 
+// intro
 const introMotion = gsap.timeline({
   onStart: function() {
     const bodyEl = document.querySelector('body');
@@ -89,6 +91,22 @@ introMotion
   .to('.section-brand__list--right .section-brand__item', {scale: 1, duration: .8, stagger: .2,}, 'c')
   .to('.section-brand__overlay', {delay: 1, opacity: 0}, 'c')
 
+// 태블릿 구간까지 로고 축약형으로 보여지기
+changeAbbreviation();
+$(window).on('resize', changeAbbreviation);
+function changeAbbreviation() {
+  const scroll = $(window).scrollTop();
+  
+  if($(window).width() <= 1023) {
+    if(scroll > 0) {
+      $('.header__logo').addClass('abbreviation');
+    } else {
+      $('.header__logo').removeClass('abbreviation');
+    }
+  }
+}
+
+// brand
 const brandVideoTl = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-brand',
@@ -103,13 +121,13 @@ const brandVideoTl = gsap.timeline({
   },
 })
 
-const itemEls = document.querySelectorAll('.section-brand__video');
+const brandVideoEls = document.querySelectorAll('.section-brand__video');
   
-itemEls.forEach(function(itemEl, index) {
-  const lastIndex = itemEls.length - 1;
+brandVideoEls.forEach(function(videoEl, index) {
+  const lastIndex = brandVideoEls.length - 1;
 
   if(index !== lastIndex) {
-    brandVideoTl.to(itemEl, {
+    brandVideoTl.to(videoEl, {
       height: 0,
       onStart: function() {
         if(index === 0) {
@@ -134,16 +152,17 @@ for(let i = 1; i < $('.section-brand__list--left .section-brand__item').length; 
   .to(`.section-brand__list--left .section-brand__item:nth-child(${i + 1})`, {
     scale: 1
   }, `a${i - 1}`)
-  .to(`.section-brand__list--left .section-brand__item:nth-child(n+${i + 1})`, {
+  .to(`.section-brand__list--left .section-brand__item:nth-child(n + ${i + 1})`, {
     yPercent: `-${i}00`,
   }, `a${i - 1}`)
 }
+
 for(let i = 1; i <= $('.section-brand__list--right .section-brand__item').length; i++) {
   brandVideoTl
   .to(`.section-brand__list--right .section-brand__item:nth-child(${i})`, {
     scale: 0,
   }, `a${i - 1}`)
-  .to(`.section-brand__list--right .section-brand__item:nth-child(n+${i + 1})`, {
+  .to(`.section-brand__list--right .section-brand__item:nth-child(n + ${i + 1})`, {
     yPercent: `-${i}00`,
   }, `a${i - 1}`)
 }
@@ -298,13 +317,15 @@ for(let i = 1; i <= $('.section-service__list--right .section-service__item').le
   .to(`.section-service__list--right .section-service__item:nth-child(${i})`, {
     scale: 0,
   },`a${i}`)
-  .to(`.section-service__list--right .section-service__item:nth-child(n+${i + 1})`, {
+  .to(`.section-service__list--right .section-service__item:nth-child(n + ${i + 1})`, {
     yPercent: `-${i}00`
   },`a${i}`)
 }
-serviceVideoTl.to('.section-service__list--left', {y: '-52vh',}, 'b')
+serviceVideoTl.to('.section-service__list--left', {y: '-52vh'}, 'b')
 
 let mm = gsap.matchMedia();
+
+// about section
 mm.add("(min-width: 1024px)", () => {
   gsap.fromTo('.section-about__headline .headline__row--flex .headline__word:nth-child(2)', {
     y: '45vh',
@@ -319,6 +340,8 @@ mm.add("(min-width: 1024px)", () => {
       }
   });
 })
+
+// partner section
 mm.add("(min-width: 1024px)", () => {
   $('.section-partner__item').each(function() {
     logoTl = gsap.timeline({
@@ -331,14 +354,20 @@ mm.add("(min-width: 1024px)", () => {
           // markers: true
         }
     })
-    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'), {x: -100}, 'a')
-    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'), {x: 100}, 'a')
-    logoTl.to($(this).find('.section-partner__column[data-direction="left"]'), {x: 0}, 'b')
-    logoTl.to($(this).find('.section-partner__column[data-direction="right"]'), {x: 0}, 'b')
+    logoTl
+    .to($(this).find('.section-partner__column[data-direction="left"]'), {x: -100}, 'a')
+    .to($(this).find('.section-partner__column[data-direction="right"]'), {x: 100}, 'a')
+    .to($(this).find('.section-partner__column[data-direction="left"]'), {x: 0}, 'b')
+    .to($(this).find('.section-partner__column[data-direction="right"]'), {x: 0}, 'b')
   })
 })
+
+// footer
 mm.add("(max-width: 767px)", () => {
   const tl2 = gsap.timeline({
+    defaults: {
+      ease: 'none'
+    },
     scrollTrigger: {
       trigger: 'footer',
       start: '-150% 50%',
@@ -354,22 +383,13 @@ mm.add("(max-width: 767px)", () => {
     }
   });
   tl2
-  .set('.logo__icon',{
-    transition: 'none',
-  })
-  .to('.logo__icon', {
-    y: '50vh',
-    ease: 'none'
-  },'a')
-  .to('.logo__icon svg', {
-    y: '-50vh',
-    ease: 'none',
-  },'a')
+  .set('.logo__icon', {transition: 'none'})
+  .to('.logo__icon', {y: '50vh'}, 'a')
+  .to('.logo__icon svg', {y: '-50vh'}, 'a')
   .to('.logo__icon', {
     scale: 1,
     y: '97.5vh',
     x: 0,
-    ease: 'none',
     onComplete: function() {
       $('.header__logo').removeClass('abbreviation');
     },
@@ -381,6 +401,9 @@ mm.add("(max-width: 767px)", () => {
 })
 mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
   const tl2 = gsap.timeline({
+    defaults: {
+      ease: 'none'
+    },
     scrollTrigger: {
       trigger: 'footer',
       start: '-230% 50%',
@@ -396,22 +419,13 @@ mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
     }
   });
   tl2
-  .set('.logo__icon',{
-    transition: 'none',
-  })
-  .to('.logo__icon', {
-    y: '50vh',
-    ease: 'none'
-  },'a')
-  .to('.logo__icon svg', {
-    y: '-50vh',
-    ease: 'none',
-  },'a')
+  .set('.logo__icon', {transition: 'none'})
+  .to('.logo__icon', {y: '50vh'}, 'a')
+  .to('.logo__icon svg', {y: '-50vh'}, 'a')
   .to('.logo__icon', {
     scale: 1,
     y: '97.5vh',
     x: 0,
-    ease: 'none',
     onComplete: function() {
       $('.header__logo').removeClass('abbreviation');
     },
@@ -423,6 +437,9 @@ mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
 })
 mm.add("(min-width: 1024px) and (max-width: 1400px)", () => {
   const tl2 = gsap.timeline({
+    defaults: {
+      ease: 'none'
+    },
     scrollTrigger: {
       trigger: 'footer',
       start: '-240% 60%',
@@ -438,22 +455,13 @@ mm.add("(min-width: 1024px) and (max-width: 1400px)", () => {
     }
   });
   tl2
-  .set('.logo__icon',{
-    transition: 'none'
-  })
-  .to('.logo__icon', {
-    y: '50vh',
-    ease: 'none'
-  },'a')
-  .to('.logo__icon svg', {
-    y: '-50vh',
-    ease: 'none'
-  },'a')
+  .set('.logo__icon', {transition: 'none'})
+  .to('.logo__icon', {y: '50vh'}, 'a')
+  .to('.logo__icon svg', {y: '-50vh'}, 'a')
   .to('.logo__icon', {
     scale: 1,
     y: '96vh',
     x: 0,
-    ease: 'none',
     onReverseComplete: function() {
       $('.header__logo').removeAttr('style');
     }
@@ -461,6 +469,9 @@ mm.add("(min-width: 1024px) and (max-width: 1400px)", () => {
 })
 mm.add("(min-width: 1401px) and (max-width: 1700px)", () => {
   const tl2 = gsap.timeline({
+    defaults: {
+      ease: 'none'
+    },
     scrollTrigger: {
       trigger: 'footer',
       start: '-150% 50%',
@@ -476,22 +487,13 @@ mm.add("(min-width: 1401px) and (max-width: 1700px)", () => {
     }
   });
   tl2
-  .set('.logo__icon',{
-    transition: 'none'
-  })
-  .to('.logo__icon', {
-    y: '50vh',
-    ease: 'none'
-  },'a')
-  .to('.logo__icon svg', {
-    y: '-50vh',
-    ease: 'none'
-  },'a')
+  .set('.logo__icon', {transition: 'none'})
+  .to('.logo__icon', {y: '50vh'}, 'a')
+  .to('.logo__icon svg', {y: '-50vh'}, 'a')
   .to('.logo__icon', {
     scale: 1,
     y: '94vh',
     x: 0,
-    ease: 'none',
     onReverseComplete: function() {
       $('.header__logo').removeAttr('style');
     }
@@ -499,6 +501,9 @@ mm.add("(min-width: 1401px) and (max-width: 1700px)", () => {
 })
 mm.add("(min-width: 1701px)", () => {
   const tl2 = gsap.timeline({
+    defaults: {
+      ease: 'none'
+    },
     scrollTrigger: {
       trigger: 'footer',
       start: '-100% 50%',
@@ -514,39 +519,15 @@ mm.add("(min-width: 1701px)", () => {
     }
   });
   tl2
-  .set('.logo__icon',{
-    transition: 'none'
-  })
-  .to('.logo__icon', {
-    y: '50vh',
-    ease: 'none'
-  },'a')
-  .to('.logo__icon svg', {
-    y: '-50vh',
-    ease: 'none'
-  },'a')
+  .set('.logo__icon', {transition: 'none'})
+  .to('.logo__icon', {y: '50vh'}, 'a')
+  .to('.logo__icon svg', {y: '-50vh'}, 'a')
   .to('.logo__icon', {
     scale: 1,
     y: '90vh',
     x: 0,
-    ease: 'none',
     onReverseComplete: function() {
       $('.header__logo').removeAttr('style');
     }
   })
 })
-
-// 태블릿 구간까지 로고 축약형으로 보여지기
-changeAbbreviation();
-$(window).on('resize', changeAbbreviation);
-function changeAbbreviation() {
-  const scroll = $(window).scrollTop();
-  
-  if($(window).width() <= 1023) {
-    if(scroll > 0) {
-      $('.header__logo').addClass('abbreviation');
-    } else {
-      $('.header__logo').removeClass('abbreviation');
-    }
-  }
-}
