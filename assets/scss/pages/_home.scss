@@ -437,12 +437,13 @@
 
 		&--right {
 			position: absolute;
+			top: 17%;
 			right: 1rem;
-			top: 52%;
 			text-align: right;
 
 			&.is-fixed {
 				position: fixed;
+				top: 52%;
 			}
 
 			@include desktop {
@@ -482,14 +483,6 @@
 			top: 52dvh;
 			transform-origin: right top;
 		}
-	}
-
-	&__space {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
 	}
 
 	&__text {
