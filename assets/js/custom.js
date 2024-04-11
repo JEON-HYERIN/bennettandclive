@@ -135,7 +135,7 @@ for(let i = 1; i < $('.section-brand__list--left .section-brand__item').length; 
     scale: 1
   }, `a${i - 1}`)
   .to(`.section-brand__list--left .section-brand__item:nth-child(n+${i + 1})`, {
-    yPercent:`-${i}00`,
+    yPercent: `-${i}00`,
   }, `a${i - 1}`)
 }
 for(let i = 1; i <= $('.section-brand__list--right .section-brand__item').length; i++) {
@@ -144,7 +144,7 @@ for(let i = 1; i <= $('.section-brand__list--right .section-brand__item').length
     scale: 0,
   }, `a${i - 1}`)
   .to(`.section-brand__list--right .section-brand__item:nth-child(n+${i + 1})`, {
-    yPercent:`-${i}00`,
+    yPercent: `-${i}00`,
   }, `a${i - 1}`)
 }
 
@@ -257,6 +257,7 @@ const printTime = () => {
 }
 printTime();
 
+// service section
 const serviceVideoTl = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-service',
@@ -280,248 +281,28 @@ const serviceVideoTl = gsap.timeline({
   }
 })
 
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(1)',{
-  scale:0,
-},'a')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+2)',{
-  yPercent:-100
-},'a')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  scale: 1
-},'a')
+for(let i = 1; i <= $('.section-service__list--left .section-service__item').length; i++) {
+  serviceVideoTl.to(`.section-service__list--left .section-service__item:nth-child(${i})`, {
+    scale: 1
+  },`a${i}`)
 
+  for(let j = i - 1; j > 0; j--) {
+    serviceVideoTl.to(`.section-service__list--left .section-service__item:nth-child(${i - j})`, {
+      yPercent: `-${j}00`,
+    },`a${i}`)
+  }
+}
 
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(2)',{
-  scale:0
-},'b')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+3)',{
-  yPercent:-200
-},'b')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  scale: 1
-},'b')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -100,
-},'b')
-
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(3)',{
-  scale:0
-},'c')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+4)',{
-  yPercent:-300
-},'c')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  scale: 1,
-},'c')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -100,
-},'c')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -200,
-},'c')
-
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(4)',{
-  scale:0
-},'d')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+5)',{
-  yPercent:-400
-},'d')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
-  scale: 1,
-},'d')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  yPercent: -100,
-},'d')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -200,
-},'d')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -300,
-},'d')
-
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(5)',{
-  scale:0
-},'e')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+6)',{
-  yPercent:-500
-},'e')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
-  scale: 1
-},'e')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
-  yPercent: -100,
-},'e')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  yPercent: -200,
-},'e')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -300,
-},'e')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -400,
-},'e')
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(6)',{
-  scale:0
-},'f')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+7)',{
-  yPercent:-600
-},'f')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
-  scale: 1
-},'f')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
-  yPercent: -100,
-},'f')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
-  yPercent: -200,
-},'f')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  yPercent: -300,
-},'f')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -400,
-},'f')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -500,
-},'f')
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(7)',{
-  scale:0
-},'g')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+8)',{
-  yPercent:-700
-},'g')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
-  scale: 1
-},'g')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
-  yPercent: -100,
-},'g')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
-  yPercent: -200,
-},'g')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
-  yPercent: -300,
-},'g')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  yPercent: -400,
-},'g')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -500,
-},'g')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -600,
-},'g')
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(8)',{
-  scale:0
-},'h')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+9)',{
-  yPercent:-800
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
-  scale: 1
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
-  yPercent: -100,
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
-  yPercent: -200,
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
-  yPercent: -300,
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
-  yPercent: -400,
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  yPercent: -500,
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -600,
-},'h')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -700,
-},'h')
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(9)',{
-  scale:0
-},'i')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+10)',{
-  yPercent:-900
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(9)',{
-  scale: 1
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
-  yPercent: -100,
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
-  yPercent: -200,
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
-  yPercent: -300,
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
-  yPercent: -400,
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
-  yPercent: -500,
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  yPercent: -600,
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -700,
-},'i')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -800,
-},'i')
-
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(10)',{
-  scale:0
-},'j')
-serviceVideoTl.to('.section-service__list--right .section-service__item:nth-child(n+11)',{
-  yPercent:-1000
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(10)',{
-  scale: 1
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(9)',{
-  yPercent: -100,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(8)',{
-  yPercent: -200,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(7)',{
-  yPercent: -300,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(6)',{
-  yPercent: -400,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(5)',{
-  yPercent: -500,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(4)',{
-  yPercent: -600,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(3)',{
-  yPercent: -700,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(2)',{
-  yPercent: -800,
-},'j')
-serviceVideoTl.to('.section-service__list--left .section-service__item:nth-child(1)',{
-  yPercent: -900
-},'j')
-
-serviceVideoTl.to('.section-service__list--left',{
-  y: '-52vh',
-},'k')
+for(let i = 1; i <= $('.section-service__list--right .section-service__item').length; i++) {
+  serviceVideoTl
+  .to(`.section-service__list--right .section-service__item:nth-child(${i})`, {
+    scale: 0,
+  },`a${i}`)
+  .to(`.section-service__list--right .section-service__item:nth-child(n+${i + 1})`, {
+    yPercent: `-${i}00`
+  },`a${i}`)
+}
+serviceVideoTl.to('.section-service__list--left', {y: '-52vh',}, 'b')
 
 let mm = gsap.matchMedia();
 mm.add("(min-width: 1024px)", () => {
