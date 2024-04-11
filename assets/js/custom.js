@@ -106,6 +106,41 @@ function changeAbbreviation() {
   }
 }
 
+// navigation open
+$('.global-nav__menu').on('click', openNav);
+window.addEventListener('resize', function() {
+  const navMenuEl = document.querySelector('.global-nav__menu');
+  const bodyEl = document.querySelector('body');
+  const CLASSNAME = 'is-nav-open';
+  
+  if (window.innerWidth >= 1024) {
+    openNav();
+    bodyEl.classList.remove(CLASSNAME);
+    navMenuEl.setAttribute('aria-label', 'Open navigation');
+    lenis.start();
+  }
+})
+function openNav() {
+  const navMenuEl = document.querySelector('.global-nav__menu');
+  const bodyEl = document.querySelector('body');
+  const CLASSNAME = 'is-nav-open';
+
+  if (window.innerWidth <= 1023) {
+    bodyEl.classList.toggle(CLASSNAME);
+    if (bodyEl.classList.contains(CLASSNAME)) {
+      lenis.stop();
+      navMenuEl.setAttribute('aria-label', 'Close navigation');
+    } else {
+      lenis.start();
+      navMenuEl.setAttribute('aria-label', 'Open navigation');
+    }
+  } else {
+    bodyEl.classList.remove(CLASSNAME);
+    lenis.start();
+    navMenuEl.setAttribute('aria-label', 'Open navigation');
+  }
+}
+
 // brand
 const brandVideoTl = gsap.timeline({
   scrollTrigger: {
@@ -197,41 +232,6 @@ ScrollTrigger.create({
     $('.header__logo').addClass('is-blended');
   }
 })
-
-// navigation open
-$('.global-nav__menu').on('click', openNav);
-window.addEventListener('resize', function() {
-  const navMenuEl = document.querySelector('.global-nav__menu');
-  const bodyEl = document.querySelector('body');
-  const CLASSNAME = 'is-nav-open';
-  
-  if (window.innerWidth >= 1024) {
-    openNav();
-    bodyEl.classList.remove(CLASSNAME);
-    navMenuEl.setAttribute('aria-label', 'Open navigation');
-    lenis.start();
-  }
-})
-function openNav() {
-  const navMenuEl = document.querySelector('.global-nav__menu');
-  const bodyEl = document.querySelector('body');
-  const CLASSNAME = 'is-nav-open';
-
-  if (window.innerWidth <= 1023) {
-    bodyEl.classList.toggle(CLASSNAME);
-    if (bodyEl.classList.contains(CLASSNAME)) {
-      lenis.stop();
-      navMenuEl.setAttribute('aria-label', 'Close navigation');
-    } else {
-      lenis.start();
-      navMenuEl.setAttribute('aria-label', 'Open navigation');
-    }
-  } else {
-    bodyEl.classList.remove(CLASSNAME);
-    lenis.start();
-    navMenuEl.setAttribute('aria-label', 'Open navigation');
-  }
-}
 
 // 지역별 시간 구하기
 let currentHour = 0;
