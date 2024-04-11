@@ -208,7 +208,6 @@ window.addEventListener('resize', function() {
   if (window.innerWidth >= 1024) {
     openNav();
     bodyEl.classList.remove(CLASSNAME);
-    bodyEl.removeAttribute('style');
     navMenuEl.setAttribute('aria-label', 'Open navigation');
     lenis.start();
   }
@@ -221,17 +220,14 @@ function openNav() {
   if (window.innerWidth <= 1023) {
     bodyEl.classList.toggle(CLASSNAME);
     if (bodyEl.classList.contains(CLASSNAME)) {
-      bodyEl.style.overflow = 'hidden';
       lenis.stop();
       navMenuEl.setAttribute('aria-label', 'Close navigation');
     } else {
-      bodyEl.removeAttribute('style');
       lenis.start();
       navMenuEl.setAttribute('aria-label', 'Open navigation');
     }
   } else {
     bodyEl.classList.remove(CLASSNAME);
-    bodyEl.removeAttribute('style');
     lenis.start();
     navMenuEl.setAttribute('aria-label', 'Open navigation');
   }

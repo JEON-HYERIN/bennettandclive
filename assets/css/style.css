@@ -302,6 +302,11 @@ button {
 .is-nav-open .global-nav__menu {
   z-index: 30;
 }
+@media screen and (min-width: 1024px) {
+  .global-nav__menu {
+    display: none;
+  }
+}
 .global-nav__menu::before {
   content: "";
   position: absolute;
@@ -309,11 +314,6 @@ button {
   left: -2rem;
   right: -2rem;
   bottom: -2rem;
-}
-@media screen and (min-width: 1024px) {
-  .global-nav__menu {
-    display: none;
-  }
 }
 .global-nav__panel {
   position: fixed;

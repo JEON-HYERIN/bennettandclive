@@ -209,6 +209,10 @@
 			z-index: $z-index--menu;
 		}
 
+		@include desktop {
+			display: none;
+		}
+
 		&::before {
 			content: '';
 			position: absolute;
@@ -218,9 +222,6 @@
 			bottom: -2rem;
 		}
 
-		@include desktop {
-			display: none;
-		}
 	}
 
 	&__panel {
