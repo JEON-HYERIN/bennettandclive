@@ -393,6 +393,7 @@
 		top: 0;
 		height: 100dvh;
 		padding: 0 3rem;
+		background-color: $color-white;
 
 		@include desktop {
 			padding: 0 7.8125vw;
@@ -425,27 +426,22 @@
 	}
 
 	&__list {
+		position: absolute;
 		z-index: 1;
 		display: flex;
 		flex-direction: column;
-		flex-wrap: nowrap;
+		color: $color-white;
 		mix-blend-mode: difference;
 
 		&--left {
-			position: fixed;
-			bottom: 53%;
+			bottom: 52%;
+			left: 0;
 		}
 
 		&--right {
-			position: absolute;
-			top: 17%;
+			top: 52%;
 			right: 1rem;
-			text-align: right;
-
-			&.is-fixed {
-				position: fixed;
-				top: 52%;
-			}
+			align-items: flex-end;
 
 			@include desktop {
 				right: .52083vw;
@@ -461,7 +457,6 @@
 		font-size: 3.6rem;
 		letter-spacing: -.05em;
 		line-height: .9;
-		color: $color-white;
 		white-space: nowrap;
 
 		@include not-mobile {

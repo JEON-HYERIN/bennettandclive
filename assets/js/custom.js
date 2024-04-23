@@ -143,6 +143,9 @@ function openNav() {
 
 // brand
 const brandVideoTl = gsap.timeline({
+  defaults: {
+    ease: 'none'
+  },
   scrollTrigger: {
     trigger: '.section-brand',
     start: '0% 0%',
@@ -274,25 +277,15 @@ printTime();
 
 // service section
 const serviceVideoTl = gsap.timeline({
+  defaults: {
+    ease: 'none'
+  },
   scrollTrigger: {
     trigger: '.section-service',
     start: '0% 0%',
     end: '100% 100%',
-    scrub: 2,
-    duration: .1,
-    ease: 'none',
-    onEnter: function() {
-      $('.section-service__list--right').addClass('is-fixed');
-    },
-    onLeaveBack: function() {
-      $('.section-service__list--right').removeClass('is-fixed');
-    },
-    onEnterBack: function() {
-      $('.section-service__list--right').addClass('is-fixed');
-    },
-  },
-  onComplete: function() {
-    $('.section-service__list--right').removeClass('is-fixed');
+    scrub: 0,
+    // markers: true
   }
 })
 
@@ -317,7 +310,6 @@ for(let i = 1; i <= $('.section-service__list--right .section-service__item').le
     yPercent: `-${i}00`
   },`a${i}`)
 }
-serviceVideoTl.to('.section-service__list--left', {y: '-52vh'}, 'b')
 
 let mm = gsap.matchMedia();
 
