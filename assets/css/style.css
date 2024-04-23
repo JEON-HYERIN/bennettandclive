@@ -125,7 +125,7 @@ button {
   font-family: InterWeb;
   font-style: normal;
   font-weight: 700;
-  src: url(../fonts/Inter-Bold.db4fc67.woff) format("woff"), url(/_nuxt/fonts/Inter-Bold.15f1c0b.woff2) format("woff2");
+  src: url(../fonts/Inter-Bold.db4fc67.woff) format("woff");
 }
 .header__logo {
   position: fixed;
