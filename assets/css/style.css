@@ -784,7 +784,6 @@ footer .footer__logo {
 }
 .loading__content {
   display: flex;
-  width: 100%;
   font-size: 6.25vw;
   line-height: 0.8;
   letter-spacing: -0.05em;
@@ -804,20 +803,20 @@ footer .footer__logo {
   justify-content: center;
   text-align: center;
 }
+.loading__content:nth-child(2) {
+  transform: translateY(130%);
+}
 
 .marquee {
   display: flex;
-  width: 100%;
 }
 .marquee__inner {
   display: flex;
 }
 .marquee__texts {
   display: flex;
-  animation-name: marquee;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 5s;
+  transform: translateX(-25%);
+  animation: marquee 5s linear infinite;
 }
 .marquee__text {
   -moz-column-gap: 0.7em;
