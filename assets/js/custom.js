@@ -314,8 +314,8 @@ window.onload = function() {
   
   let mm = gsap.matchMedia();
   
-  // about section
   mm.add("(min-width: 1024px)", () => {
+    // about section
     gsap.from('.section-about__headline .headline__row--flex .headline__word:nth-child(2)', {
       y: '45vh',
       scrollTrigger: {
@@ -327,10 +327,8 @@ window.onload = function() {
         // markers: true
       }
     });
-  })
-  
-  // partner section
-  mm.add("(min-width: 1024px)", () => {
+    
+    // partner section
     $('.section-partner__item').each(function() {
       logoTl = gsap.timeline({
         scrollTrigger: {
@@ -349,7 +347,7 @@ window.onload = function() {
       .to($(this).find('.section-partner__column[data-direction="right"]'), {x: 0}, 'b')
     })
   })
-  
+
   // footer
   mm.add("(max-width: 767px)", () => {
     const tl2 = gsap.timeline({
