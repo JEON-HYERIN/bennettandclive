@@ -970,7 +970,6 @@ footer .footer__logo {
   height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: opacity 0.4s;
 }
 .section-brand__overlay {
   position: absolute;
