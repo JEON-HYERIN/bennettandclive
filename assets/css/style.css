@@ -828,10 +828,10 @@ footer .footer__logo {
 
 @keyframes marquee {
   0% {
-    transform: translate(-100%, 0px);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translate(-200%, 0px);
+    transform: translateX(-200%);
   }
 }
 .section-brand {
