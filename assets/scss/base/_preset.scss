@@ -25,9 +25,8 @@ button {
 }
 
 ::selection {
-	background-color: $color-black;
 	color: $color-white;
-	text-shadow: none;
+	background-color: $color-black;
 }
 
 #wrap {

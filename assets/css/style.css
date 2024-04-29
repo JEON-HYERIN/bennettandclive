@@ -97,15 +97,13 @@ button {
 }
 
 ::-moz-selection {
-  background-color: #000;
   color: #fff;
-  text-shadow: none;
+  background-color: #000;
 }
 
 ::selection {
-  background-color: #000;
   color: #fff;
-  text-shadow: none;
+  background-color: #000;
 }
 
 #wrap {
