@@ -369,7 +369,7 @@ window.onload = function() {
       }
     });
     tl2
-    .set('.logo__icon', {transition: 'none'})
+    .set('.logo__icon', {transition: 'initial'})
     .to('.logo__icon', {y: '50vh'}, 'a')
     .to('.logo__icon svg', {y: '-50vh'}, 'a')
     .to('.logo__icon', {
@@ -405,7 +405,7 @@ window.onload = function() {
       }
     });
     tl2
-    .set('.logo__icon', {transition: 'none'})
+    .set('.logo__icon', {transition: 'initial'})
     .to('.logo__icon', {y: '50vh'}, 'a')
     .to('.logo__icon svg', {y: '-50vh'}, 'a')
     .to('.logo__icon', {
@@ -441,7 +441,7 @@ window.onload = function() {
       }
     });
     tl2
-    .set('.logo__icon', {transition: 'none'})
+    .set('.logo__icon', {transition: 'initial'})
     .to('.logo__icon', {y: '50vh'}, 'a')
     .to('.logo__icon svg', {y: '-50vh'}, 'a')
     .to('.logo__icon', {
@@ -473,7 +473,7 @@ window.onload = function() {
       }
     });
     tl2
-    .set('.logo__icon', {transition: 'none'})
+    .set('.logo__icon', {transition: 'initial'})
     .to('.logo__icon', {y: '50vh'}, 'a')
     .to('.logo__icon svg', {y: '-50vh'}, 'a')
     .to('.logo__icon', {
@@ -505,7 +505,7 @@ window.onload = function() {
       }
     });
     tl2
-    .set('.logo__icon', {transition: 'none'})
+    .set('.logo__icon', {transition: 'initial'})
     .to('.logo__icon', {y: '50vh'}, 'a')
     .to('.logo__icon svg', {y: '-50vh'}, 'a')
     .to('.logo__icon', {
