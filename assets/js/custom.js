@@ -359,9 +359,6 @@ window.onload = function() {
         start: '-150% 50%',
         end: '30% 80%',
         scrub: 0,
-        onEnter: function() {
-          $('.header__logo').removeAttr('style');
-        },
         onLeaveBack: function() {
           $('.header__logo').addClass('scale');
         },
@@ -381,7 +378,6 @@ window.onload = function() {
       },
       onReverseComplete: function() {
         $('.header__logo').addClass('abbreviation');
-        $('.header__logo').removeAttr('style');
       }
     })
   })
@@ -395,12 +391,6 @@ window.onload = function() {
         start: '-230% 50%',
         end: '50% 90%',
         scrub: 0,
-        onEnter: function() {
-          $('.header__logo').removeAttr('style');
-        },
-        onLeaveBack: function() {
-          $('.header__logo').removeAttr('style');
-        }
         // markers: true
       }
     });
@@ -417,7 +407,6 @@ window.onload = function() {
       },
       onReverseComplete: function() {
         $('.header__logo').addClass('abbreviation');
-        $('.header__logo').removeAttr('style');
       }
     })
   })
@@ -431,12 +420,6 @@ window.onload = function() {
         start: '-240% 60%',
         end: '60% 90%',
         scrub: 0,
-        onEnter: function() {
-          $('.header__logo').removeAttr('style');
-        },
-        onLeaveBack: function() {
-          $('.header__logo').removeAttr('style');
-        },
         // markers: true
       }
     });
@@ -448,9 +431,6 @@ window.onload = function() {
       scale: 1,
       y: '96vh',
       x: 0,
-      onReverseComplete: function() {
-        $('.header__logo').removeAttr('style');
-      }
     })
   })
   mm.add("(min-width: 1401px) and (max-width: 1700px)", () => {
@@ -463,12 +443,6 @@ window.onload = function() {
         start: '-150% 50%',
         end: '60% 90%',
         scrub: 0,
-        onEnter: function() {
-          $('.header__logo').removeAttr('style');
-        },
-        onLeaveBack: function() {
-          $('.header__logo').removeAttr('style');
-        },
         // markers: true
       }
     });
@@ -480,9 +454,6 @@ window.onload = function() {
       scale: 1,
       y: '94vh',
       x: 0,
-      onReverseComplete: function() {
-        $('.header__logo').removeAttr('style');
-      }
     })
   })
   mm.add("(min-width: 1701px)", () => {
@@ -495,12 +466,6 @@ window.onload = function() {
         start: '-100% 50%',
         end: 'bottom bottom',
         scrub: 0,
-        onEnter: function() {
-          $('.header__logo').removeAttr('style');
-        },
-        onLeaveBack: function() {
-          $('.header__logo').removeAttr('style');
-        },
         // markers: true
       }
     });
@@ -512,9 +477,6 @@ window.onload = function() {
       scale: 1,
       y: '90vh',
       x: 0,
-      onReverseComplete: function() {
-        $('.header__logo').removeAttr('style');
-      }
     })
   })
 }
