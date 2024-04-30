@@ -61,12 +61,12 @@ window.onload = function() {
   
     .set('.header__logo', {
       opacity: 0,
-      onComplete:function() {
+      onComplete: function() {
         $('.header__logo').addClass('white');
       }
     }, 'b')
     .to('.loading', {'background-color': 'transparent'}, 'b')
-    .set('.header__logo', {opacity: 1}, 'b')
+    .set('.header__logo', {clearProps: 'opacity'}, 'b')
   
     .from('.global-nav__link', {
       opacity: 0,
