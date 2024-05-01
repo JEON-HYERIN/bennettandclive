@@ -386,14 +386,6 @@ button {
 .is-nav-open .global-nav__open .global-nav__line:nth-child(2)::before {
   transition-delay: 0.1s;
 }
-.global-nav__close {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
 .global-nav__close .global-nav__line {
   position: absolute;
   top: 50%;
