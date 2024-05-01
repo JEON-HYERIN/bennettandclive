@@ -396,8 +396,9 @@ button {
 }
 .global-nav__close .global-nav__line {
   position: absolute;
-  top: calc(50% - 0.2rem);
-  left: calc(50% - 1.8rem);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 }
 .global-nav__close .global-nav__line::before {
   transform: scaleX(0);
